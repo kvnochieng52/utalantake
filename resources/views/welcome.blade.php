@@ -4,6 +4,7 @@ Welcome
 @endsection
 
 @section('content')
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -829,7 +830,7 @@ Welcome
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
 
-
+                    Test Here
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

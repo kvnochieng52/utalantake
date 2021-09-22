@@ -29,7 +29,7 @@
     @yield('css-scripts')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition layout-top-nav">
     <div class="wrapper">
 
         <!-- Preloader -->

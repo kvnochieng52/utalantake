@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCountyIdsTable extends Migration
+class CreateGendersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCountyIdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('county_ids', function (Blueprint $table) {
+        Schema::create('genders', function (Blueprint $table) {
             $table->id();
-            $table->string('county_name')->nullable($value = true);
+            $table->string('gender_name')->nullable($value = true);
+            $table->int('visible')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
@@ -29,6 +30,6 @@ class CreateCountyIdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('county_ids');
+        Schema::dropIfExists('genders');
     }
 }

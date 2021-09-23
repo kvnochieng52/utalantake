@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GenderId extends Model
+class Gender extends Model
 {
     //
 }

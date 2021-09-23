@@ -44,7 +44,42 @@ Welcome
         </ul>
     </div>
 </nav>
+{{-- <div class="content-wrapper"> --}}
+<div class="start_up_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
 
+
+                <div class="header">
+                    <br />
+                    <p class="lead">Login to Your Account</p>
+
+                    <div class="form-group">
+                        <label for="signup-email" class="control-label">Email or Telephone</label>
+                        <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email"
+                            autofocus="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email" class="control-label">Password</label>
+                        <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email"
+                            autofocus="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <br />
+                <h3 style="font-size:26px">Where your Talent &amp; Skills Pays Off</h3>
+                <h6>Utalanta links your Talent and skills with Opportunities from individuals or organizations. Also
+                    find Tasks & Jobs that best match your skills </h6>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{-- </div> --}}
 
 
 <!-- /.navbar -->

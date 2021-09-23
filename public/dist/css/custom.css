@@ -1,6 +1,11 @@
 .layout-top-nav .wrapper .main-header .brand-image {
-
     height: 55px;
 }
 
-.main_menu a { font-weight: bold;}
+.main_menu a { 
+    font-weight: bold;
+}
+
+.start_up_cover{
+    background: linear-gradient(0deg, #efefef, #fff);
+}

@@ -51,7 +51,7 @@ Welcome
             <div class="col-lg-6">
 
 
-                <div class="header">
+                <div class="header" style=" padding-right: 100px">
                     <br />
                     <p class="lead">Login to Your Account</p>
 
@@ -66,6 +66,20 @@ Welcome
                         <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email"
                             autofocus="">
                     </div>
+
+                    <button type="submit" class="btn btn-warning btn-block"><strong>LOGIN</strong></button>
+                    <div class="bottom">
+                        <br>
+                        <span class="helper-text">Cant Remember Password? <a
+                                href="http://127.0.0.1:8000/authentication/login">
+
+                                <strong> Reset </strong></a></span>
+
+                        <br />
+
+                        <a class="btn btn-secondary btn-block" href="http://127.0.0.1:8000/register">Register
+                            Account</a>
+                    </div>
                 </div>
             </div>
 
@@ -76,6 +90,7 @@ Welcome
                     find Tasks & Jobs that best match your skills </h6>
             </div>
         </div>
+        <br />
     </div>
 
 </div>

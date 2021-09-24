@@ -51,7 +51,7 @@ Welcome
             <div class="col-lg-6">
 
 
-                <div class="header" style=" padding-right: 50px">
+                <div class="header">
                     <br />
 
                     <h6>Utalanta links your Talent & Skills with Opportunities. Also
@@ -87,7 +87,7 @@ Welcome
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" style=" padding-left: 50px">
                 <br />
 
                 <div style="padding-top: 20px">

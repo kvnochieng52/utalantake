@@ -107,7 +107,7 @@ Welcome
     <div class="container">
 
         <div class="footer"
-            style="border-top: 1px solid #dee2e6; padding-top:20px; margin-top:50px; padding-bottom:50px">
+            style="border-top: 1px solid #dee2e6; padding-top:20px; margin-top:15px; padding-bottom:50px">
 
 
             <div class="row">

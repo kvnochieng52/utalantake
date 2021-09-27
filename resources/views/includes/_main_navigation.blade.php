@@ -30,7 +30,7 @@
 
             <li>
 
-                <a href="" class="btn btn-block btn-warning"><b>REGISTER</b></a>
+                <a href="/register" class="btn btn-block btn-warning"><b>REGISTER</b></a>
             </li>
 
 

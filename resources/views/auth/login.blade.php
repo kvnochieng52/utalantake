@@ -19,7 +19,8 @@ Register Account
                 <div class="header">
                     <br />
                     <p class="lead">Login to your Account</p>
-                    <h6>Enter your Email Address to login.</h6>
+                    <h6>Enter your Email Address and password to login.</h6>
+                    @include('notices')
                     @include('includes.auth._login_form')
 
                     <div class="bottom">

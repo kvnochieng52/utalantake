@@ -35,6 +35,6 @@ class AuthController extends Controller
         $user_details->updated_by =  $user->id;
         $user_details->save();
 
-        return redirect('/login')->with('success', 'Account Successfully Created. Please Login to continue');
+        return redirect('/login')->with('success', 'Account Successfully Created. Please Login with your Email Address & Password to continue');
     }
 }

@@ -27,4 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('auth')->group(function () {
+    Route::post('/regsiter_account', 'AuthController@regsiter_account')->name('home');
 });

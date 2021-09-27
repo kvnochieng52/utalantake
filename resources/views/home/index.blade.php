@@ -59,29 +59,11 @@ Welcome
                     <p class="lead">Login to Your Account</p>
 
 
-                    <div class="form-group">
-                        <label for="signup-email" class="control-label">Email or Telephone</label>
-                        <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email"
-                            autofocus="">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="signup-email" class="control-label">Password</label>
-                        <input id="email" type="email" class="form-control " name="email" value="" autocomplete="email"
-                            autofocus="">
-                    </div>
+                    @include('includes.auth._login_form')
 
-                    <button type="submit" class="btn btn-warning btn-block"><strong>LOGIN</strong></button>
                     <div class="bottom">
-                        <br>
-                        <p> <span class="helper-text">Cant Remember Password? <a
-                                    href="http://127.0.0.1:8000/authentication/login">
-
-                                    <strong> Reset </strong></a></span></p>
-
-
-
-                        <a class="btn btn-secondary btn-block" href="http://127.0.0.1:8000/register">Register
+                        <a class="btn btn-secondary btn-block" href="/register">Register
                             Account</a>
                     </div>
                 </div>

@@ -99,8 +99,7 @@ Welcome
                 {{-- <h3 style="font-size:26px">Where your Talent &amp; Skills Pays Off</h3> --}}
             </div>
         </div>
-        <br />
-        <br />
+
 
     </div>
 

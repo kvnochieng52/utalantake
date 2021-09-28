@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class AccountTypeSeeder extends Seeder
+class GenderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,19 +11,26 @@ class AccountTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('account_types')->insert([
+        DB::table('genders')->insert([
             [
-                'account_type_name' => 'Full Access',
+                'gender_name' => 'Male',
                 'visible' => 1,
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
-                'account_type_name' => 'Limited',
+                'gender_name' => 'Female',
+                'visible' => 1,
+                'created_by' => 1,
+                'updated_by' => 1,
+            ],
+            [
+                'gender_name' => 'Other',
                 'visible' => 1,
                 'created_by' => 1,
                 'updated_by' => 1,
             ]
+
         ]);
     }
 }

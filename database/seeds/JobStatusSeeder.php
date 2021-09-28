@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class AccountTypeSeeder extends Seeder
+class JobStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,16 +11,16 @@ class AccountTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('account_types')->insert([
+        DB::table('job_statuses')->insert([
             [
-                'account_type_name' => 'Full Access',
-                'visible' => 1,
+                'job_status_name' => 'Open',
+                'active' => 1,
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
-                'account_type_name' => 'Limited',
-                'visible' => 1,
+                'job_status_name' => 'Closed',
+                'active' => 1,
                 'created_by' => 1,
                 'updated_by' => 1,
             ]

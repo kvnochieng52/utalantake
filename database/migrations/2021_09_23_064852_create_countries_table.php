@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->id();
             $table->integer('country_code')->nullable($value = true);
             $table->string('country_name')->nullable($value = true);
+            $table->integer('active')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

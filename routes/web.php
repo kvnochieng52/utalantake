@@ -31,6 +31,7 @@ Route::prefix('auth')->group(function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('profile/select_account_type', 'UserProfileController@select_account_type');
+    Route::post('profile/select_acc_type_store', 'UserProfileController@select_acc_type_store');
 });
 
 

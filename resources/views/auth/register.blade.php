@@ -174,16 +174,13 @@ Register Account
             </div>
         </div>
     </div>
-    {{-- </div> --}}
 
-
-    <!-- /.navbar -->
 
     @endsection
 
 
     @section('css-scripts')
-    <link href="dist/css/custom.css" rel="stylesheet">
+    <link href="/dist/css/custom.css" rel="stylesheet">
 
     @endsection
 

@@ -18,7 +18,7 @@ Register Account
 
                 <div class="header">
                     <br />
-
+                    <br />
 
                     <p class="lead">Select Free Account Type</p>
                     <h6>Select your Preffered Account type to help us customize your profile based on your pereferences.
@@ -26,7 +26,7 @@ Register Account
                     </h6>
 
                     {!!
-                    Form::open(['action'=>'AuthController@regsiter_account','method'=>'POST','class'=>'form
+                    Form::open(['action'=>'UserProfileController@select_acc_type_store','method'=>'POST','class'=>'form
                     candidate_form',
                     'enctype'=>'multipart/form-data'])
                     !!}
@@ -35,7 +35,8 @@ Register Account
                     <div class="row">
                         <div class="col-md-12">
                             <div class="icheck-primary d-inline">
-                                <input type="radio" id="full_account" name="account_type" value="1">
+                                <input type="radio" id="full_account" name="account_type"
+                                    value="{{$FULL_ACCESS_AC_TYPE}}" checked>
                                 <label for="full_account">
                                     <p style="margin-bottom:0px"> Full Access (Recommended)</p>
                                     <p style="font-size: 14px; font-weight:normal !important; margin-bottom:0px">Enables
@@ -51,7 +52,8 @@ Register Account
                     <div class="row">
                         <div class="col-md-12">
                             <div class="icheck-primary d-inline">
-                                <input type="radio" id="limited" name="account_type" value="2">
+                                <input type="radio" id="limited" name="account_type"
+                                    value="{{$LIMITED_ACCESS_AC_TYPE}}">
                                 <label for="limited">
                                     <p style="margin-bottom:0px"> Limited Access</p>
                                     <p style="font-size: 14px; font-weight:normal !important;">Post Tasks & Jobs &
@@ -76,58 +78,15 @@ Register Account
             </div>
         </div>
 
-        <div class="container">
 
-            <div class="footer"
-                style="border-top: 1px solid #dee2e6; padding-top:20px; margin-top:15px; padding-bottom:50px">
+        <br />
+        <br />
 
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p>All Rights Reserved | Copyright 2020 © Utalanta.com</p>
-                    </div>
-
-
-                    <div class="col-lg-6">
-                        <div class="float-right">
-                            <a href="">About</a> &nbsp; <a href="">Privacy Statement</a> &nbsp; <a href="">Contact
-                                Us</a>
-                            &nbsp;&nbsp;
-                            Powered By <a href="http://softtouchtechnologies.com/">Soft Touch Technologies.</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+        @include('includes._footer')
 
     </div>
 
 
-    <div class=" modal fade" id="introVideoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-
-                <div class="modal-body">
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                            allow="autoplay"></iframe>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 
     @endsection

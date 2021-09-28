@@ -10,3 +10,5 @@
 .start_up_cover{
     background: linear-gradient(0deg, #efefef, #fff);
 }
+
+.error_submission{ color: red; font-size: 12px;}

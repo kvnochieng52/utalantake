@@ -1,49 +1,11 @@
 @extends('layouts.master_frontend')
 @section('title')
-Welcome
+Register Account
 @endsection
 
 @section('content')
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-        <a href="../../index3.html" class="navbar-brand">
-            <img src="/images/logo.png" alt="AdminLTE Logo" class="brand-image">
-
-        </a>
-
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav main_menu">
-                <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Find Experts</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Search Tasks/Jobs</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- Right navbar links -->
-        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
-            <li>
-
-                <a href="" class="btn btn-block btn-warning"><b>REGISTER</b></a>
-            </li>
-
-
-        </ul>
-    </div>
-</nav>
+@include('includes._main_navigation')
 {{-- <div class="content-wrapper"> --}}
 <div class="start_up_cover">
     <div class="container">
@@ -61,90 +23,91 @@ Welcome
                     <p class="lead">Regsiter Account</p>
                     <h6>Please Register your free Utalanta Account.</h6>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    {!!
+                    Form::open(['action'=>'AuthController@regsiter_account','method'=>'POST','class'=>'form
+                    candidate_form',
+                    'enctype'=>'multipart/form-data'])
+                    !!}
 
-                        <div class="row">
+                    <div class="row">
 
-                            <div class="col-lg-6">
-
-                                <div class="form-group">
-                                    <label for="first_name" class="control-label">Your First Name</label>
-                                    <input id="first_name" type="text" class="form-control" first_name="email" value=""
-                                        autofocus>
-
-                                    @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="last_name" class="control-label">Your Last Name</label>
-                                    <input id="last_name" type="text" class="form-control" name="last_name" value="">
-                                    @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-6">
-
-                                <div class="form-group">
-                                    <label for="email" class="control-label">Email</label>
-                                    <input id="email" type="email" class="form-control " name="email" value="">
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="telephone" class="control-label">Telephone</label>
-                                    <input id="telephone" type="text" class="form-control" name="telephone" value="">
-                                    @error('telephone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="col-lg-12">
-
-                                <div class="form-group">
-                                    <label for="password" class="control-label">Enter Password</label>
-                                    <input id="password" type="password" class="form-control " name="password" value="">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                {{Form::label('first_name', 'First Name',['class'=>'control-label'])}}
+                                {{Form::text('first_name',null,['class'=>'form-control', 'placeholder'=>'Enter your First Name', 'autofocus'=>'true'])}}
+                                @error('first_name')
+                                <span class="error_submission" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                         </div>
+                        <div class="col-lg-6">
 
-                        <button type="submit" class="btn btn-warning btn-block"><strong>REGISTER</strong></button>
+                            <div class="form-group">
+                                {{Form::label('last_name', 'Last Name',['class'=>'control-label'])}}
+                                {{Form::text('last_name',null,['class'=>'form-control', 'placeholder'=>'Enter your Last Name'])}}
+                                @error('last_name')
+                                <span class="error_submission" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
 
-                    </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                {{Form::label('email', 'Email Address',['class'=>'control-label'])}}
+                                {{Form::text('email',null,['class'=>'form-control', 'placeholder'=>'Enter your Email Address'])}}
+                                @error('email')
+                                <span class="error_submission" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                {{Form::label('telephone', 'Telephone No.',['class'=>'control-label'])}}
+                                {{Form::text('telephone',null,['class'=>'form-control', 'placeholder'=>'Enter your telephone '])}}
+                                @error('telephone')
+                                <span class="error_submission" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <div class="form-group">
+                                {{Form::label('password', 'Password.',['class'=>'control-label'])}}
+                                {{Form::password('password',['class'=>'form-control', 'placeholder'=>'Enter your password '])}}
+                                @error('password')
+                                <span class="error_submission" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-warning btn-block"><strong>REGISTER</strong></button>
+
+                    {!! Form::close() !!}
                     <div class="bottom">
                         <br>
-                        <p> <span class="helper-text">Have an account already? <a
-                                    href="http://127.0.0.1:8000/authentication/login">
+                        <p> <span class="helper-text">Have an account already? <a href="/login">
 
                                     <strong> Login </strong></a></span></p>
 
@@ -211,153 +174,17 @@ Welcome
             </div>
         </div>
     </div>
-    {{-- </div> --}}
 
-
-    <!-- /.navbar -->
 
     @endsection
 
 
     @section('css-scripts')
-    <link href="dist/css/custom.css" rel="stylesheet">
-    <style>
-        .modal-dialog {
-            max-width: 800px;
-            margin: 30px auto;
-        }
-
-
-
-        .modal-body {
-            position: relative;
-            padding: 0px;
-        }
-
-        .close {
-            position: absolute;
-            right: -30px;
-            top: 0;
-            z-index: 999;
-            font-size: 2rem;
-            font-weight: normal;
-            color: #fff;
-            opacity: 1;
-        }
-    </style>
+    <link href="/dist/css/custom.css" rel="stylesheet">
 
     @endsection
 
 
     @section('js-scripts')
-    {{-- <script src="{{ asset('js/jquery-ui.min.js')}}"></script> --}}
-
-    <script>
-        // $(document).ready(function() {
-    //     var $videoSrc;  
-    //     $('.video-btn').click(function() {
-    //         $videoSrc = $(this).data( "src" );
-    //     });
-
-    //     $('#introVideoModal').on('shown.bs.modal', function (e) {
-    //          $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
-    //     })
-        
-    //     $('#introVideoModal').on('hide.bs.modal', function (e) {
-    //         $("#video").attr('src',$videoSrc); 
-    //     }) 
-
-
-    // });
-
-    </script>
 
     @endsection
-
-
-
-
-
-    {{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}
-</div>
-
-<div class="card-body">
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                    value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-            <div class="col-md-6">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                    value="{{ old('email') }}" required autocomplete="email">
-
-                @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-            <div class="col-md-6">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                    name="password" required autocomplete="new-password">
-
-                @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="password-confirm"
-                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-            <div class="col-md-6">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-                    autocomplete="new-password">
-            </div>
-        </div>
-
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-</div>
-</div>
-</div>
-</div>
-@endsection --}}

@@ -11,8 +11,7 @@ class UserProfileController extends Controller
 {
     public function index()
     {
-        echo "User Profile";
-        exit;
+        return view('profile.index');
     }
 
     public function select_account_type()

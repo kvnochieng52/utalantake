@@ -182,7 +182,7 @@ class SkillSeeder extends Seeder
             ],
             [
                 'industry_id' => 1,
-                'skill_name' => 'Programming & Development(Computer)',
+                'skill_name' => 'Software & Development(Computer)',
                 'order' => 1,
                 'active' => 1,
                 'created_by' => 1,
@@ -190,7 +190,7 @@ class SkillSeeder extends Seeder
             ],
             [
                 'industry_id' => 1,
-                'skill_name' => 'Web Design work',
+                'skill_name' => 'Software Design work',
                 'order' => 1,
                 'active' => 1,
                 'created_by' => 1,

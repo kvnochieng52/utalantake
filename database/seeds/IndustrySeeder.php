@@ -11,7 +11,7 @@ class IndustrySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('account_types')->insert([
+        DB::table('industries')->insert([
             [
                 'industry_name' => 'Agriculture, Fishing, Forestry',
                 'order' => 1,
@@ -249,7 +249,15 @@ class IndustrySeeder extends Seeder
                 'active' => 1,
                 'created_by' => 1,
                 'updated_by' => 1,
-            ]
+            ],
+            [
+                'industry_id' => 1,
+                'skill_name' => 'Fish monger',
+                'order' => 1,
+                'active' => 1,
+                'created_by' => 1,
+                'updated_by' => 1,
+            ],
         ]);
     }
 }

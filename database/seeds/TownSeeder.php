@@ -11,7 +11,7 @@ class TownSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('counties')->insert([
+        DB::table('towns')->insert([
             [
                 'county_id' => 1,
                 'town_name' => 'Nairobi',

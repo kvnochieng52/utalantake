@@ -18,6 +18,7 @@ class CreateJobSelectedSkillsTable extends Migration
             $table->integer('job_id')->nullable($value = true);
             $table->integer('industry_id')->nullable($value = true);
             $table->integer('skill_id')->nullable($value = true);
+            $table->text('skill_name')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

@@ -28,10 +28,74 @@
         <!-- Right navbar links -->
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
 
-            <li>
 
-                <a href="/register" class="btn btn-block btn-warning"><b>REGISTER</b></a>
+
+
+            @if (Auth::check())
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="../../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2"
+                        alt="User Image">
+                    <span class="d-none d-md-inline">Kevin Ochieng <i class="fas fa-caret-down"></i></span>
+                </a>
+                <ul class="dropdown-menu  dropdown-menu-right" style="left: inherit; right: 0px;">
+                    <!-- User image -->
+                    {{-- <li class="user-header bg-primary">
+                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
+                        <p>
+                            Alexander Pierce - Web Developer
+                            <small>Member since Nov. 2012</small>
+                        </p>
+                    </li> --}}
+                    <!-- Menu Body -->
+                    {{-- <li class="user-body">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <a href="#">Followers</a>
+                            </div>
+                            <div class="col-4 text-center">
+                                <a href="#">Sales</a>
+                            </div>
+                            <div class="col-4 text-center">
+                                <a href="#">Friends</a>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </li> --}}
+
+
+                    <li><a href="#" class="dropdown-item">View profile</a></li>
+                    <li><a href="#" class="dropdown-item">Edit Profile</a></li>
+                    <li><a href="#" class="dropdown-item">Jobs/Tasks</a></li>
+
+
+                    <li class="dropdown-divider"></li>
+
+                    <!-- Level two dropdown-->
+
+
+
+
+
+
+
+
+
+                    <!-- Menu Footer-->
+                    <li>
+                        <a href="#" class="dropdown-item">Logout </a>
+                    </li>
+                </ul>
             </li>
+            @else
+            <li><a href="/register" class="btn btn-block btn-warning"><b>REGISTER</b></a></li>
+            @endif
+
+
+
+
+
 
 
         </ul>

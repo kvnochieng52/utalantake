@@ -16,44 +16,50 @@ Register Account
 
 
                 <div class="card">
-                    <div class="card-body box-profile">
+                    <div class="card-body box-profile" style="padding-bottom: 5px">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg"
+                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/user4-128x128.jpg"
                                 alt="User profile picture">
                         </div>
 
-                        <h3 class="profile-username text-center">Nina Mcintire</h3>
+                        <h3 class="profile-username text-center">Kevin Ochieng</h3>
 
                         <p class="text-muted text-center">Software Engineer</p>
 
                         <ul class="list-unstyled list-referrals">
                             <li>
-                                <p style="margin-bottom:5px"><span class="value">25%</span><span
-                                        class="text-muted float-right">Profile
-                                        Progress | <a href="" data-toggle="modal"
-                                            data-target=".profile-complete">Details</a>
+                                <p style="margin-bottom:5px"><span class="value"><b>25%</b></span><span
+                                        class="text-muted float-right">Complete | <a href="" data-toggle="modal"
+                                            data-target=".profile-complete"><b>(Check here)</b></a>
                                     </span></p>
                                 <div class="progress progress-xs progress-transparent custom-color-yellow">
                                     <div class="progress-bar" data-transitiongoal="25" style="width: 25%;"
                                         aria-valuenow="25">
                                     </div>
                                 </div>
-                                <p style="color: red ;margin-bottom:5px;margin-top:8px"><i class="icon-info"></i>
-                                    Complete
-                                    Profile to be listed</p>
+                                <p style="color: red ;margin-bottom:5px;margin-top:8px">
+                                    <b>
+                                        <i class="fas fa-info-circle"></i>
+                                        Complete
+                                        Profile to be listed
+                                    </b>
+                                </p>
                             </li>
                         </ul>
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Followers</b> <a class="float-right">1,322</a>
+                                <a href="" style="color:#5f5f5f"><b> <i class="far fa-user-circle"></i> View Profile</b>
+                                </a>
                             </li>
                             <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
+                                <a href="" style="color:#5f5f5f"><b> <i class="far fa-clipboard"></i> Tasks/Jobs</b>
+                                </a>
+                                <a class="float-right">Post New</a>
                             </li>
-                            <li class="list-group-item">
+                            {{-- <li class="list-group-item">
                                 <b>Friends</b> <a class="float-right">13,287</a>
-                            </li>
+                            </li> --}}
                         </ul>
 
                         {{-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> --}}
@@ -64,7 +70,97 @@ Register Account
 
 
 
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>44</h3>
 
+                        <p>Opportunties for you</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">View Opportunties <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recently Added Opportunities</h3>
+
+                        {{-- <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div> --}}
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="products-list product-list-in-card pl-2 pr-2">
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">Software Developer
+                                        <span class="badge badge-warning float-right">open</span></a>
+                                    <span class="product-description">
+                                        By: Safaricom
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">Plumbing Job
+                                        <span class="badge badge-danger float-right">Closed</span></a>
+                                    <span class="product-description">
+                                        By: Roy Willis
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">Footballer Required
+                                        <span class="badge badge-warning float-right">open</span></a>
+                                    <span class="product-description">
+                                        By: Safaricom
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">TV Set Electrician
+                                        <span class="badge badge-warning float-right">open</span></a>
+                                    <span class="product-description">
+                                        By: Pius Malala
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- /.item -->
+
+                            <!-- /.item -->
+
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center">
+                        <a href="javascript:void(0)" class="uppercase">View All Opportunities</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
 
 
 
@@ -79,8 +175,7 @@ Register Account
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="userprofile social" style="padding-top: 20px">
-                            <div class="userpic"> <img src="http://127.0.0.1:8000/assets/img/albert.jpg" alt=""
-                                    class="userpicimg">
+                            <div class="userpic"> <img src="/dist/img/user4-128x128.jpg" alt="" class="userpicimg">
                             </div>
                             <h5 class="username"> Kevin Ochieng</h5>
                             <p class="text-center">Passionate Designer & Developer</p>
@@ -96,6 +191,7 @@ Register Account
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 
@@ -230,22 +326,29 @@ Register Account
                             </div>
                         </div>
                     </div>
+
+                    <div class="card-footer">
+
+                    </div>
                     <!-- /.card -->
 
 
                 </div>
                 <div class="card">
-                    {{-- <div class="card-header">
-                        Test
-                    </div> --}}
+
 
                     <div class="card-body">
-
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Skills </h5><br />
+                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Industries & Skills </h5><br />
 
                         <p>Let us know what you are talented or passionate about (Click on a skill for more details)</p>
 
-
+                        <div class="row">
+                            <div class="col-md-12" style="padding-bottom: 10px">
+                                <hr />
+                                <b>Information and Communication Technology</b>
+                                <hr />
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="" class="" data-toggle="modal" data-target="#skill">
@@ -309,6 +412,8 @@ Register Account
 
 
                     </div>
+
+
                 </div>
 
 
@@ -325,8 +430,8 @@ Register Account
 
                                 <div class="media">
                                     <a href="" class="" data-toggle="modal" data-target=".video">
-                                        <img class="mr-3" src="http://127.0.0.1:8000/assets/img/video3.jpg"
-                                            alt="Generic placeholder image" style="width:120px">
+                                        <img class="mr-3" src="/images/video3.jpg" alt="Generic placeholder image"
+                                            style="width:120px">
                                     </a>
                                     <div class="media-body">
                                         <h5 class="mt-0" style="font-size:16px">6 Videos</h5>
@@ -344,8 +449,8 @@ Register Account
                             <div class="col-md-6">
                                 <div class="media">
                                     <a href="" class="" data-toggle="modal" data-target=".image">
-                                        <img class="mr-3" src="http://127.0.0.1:8000/assets/img/image2.jpg"
-                                            alt="Generic placeholder image" style="width:120px">
+                                        <img class="mr-3" src="/images/image2.jpg" alt="Generic placeholder image"
+                                            style="width:120px">
                                     </a>
                                     <div class="media-body">
                                         <h5 class="mt-0" style="font-size:16px">3 Images</h5>
@@ -360,8 +465,8 @@ Register Account
 
                             <div class="col-md-6">
                                 <div class="media">
-                                    <img class="mr-3" src="http://127.0.0.1:8000/assets/img/audio.jpg"
-                                        alt="Generic placeholder image" style="width:120px">
+                                    <img class="mr-3" src="/images/audio.jpg" alt="Generic placeholder image"
+                                        style="width:120px">
                                     <div class="media-body">
                                         <h5 class="mt-0" style="font-size:16px">4 Audio</h5>
                                         <a href="">Selfie Track Title goes here</a><br>
@@ -374,8 +479,8 @@ Register Account
 
                             <div class="col-md-6">
                                 <div class="media">
-                                    <img class="mr-3" src="http://127.0.0.1:8000/assets/img/file.jpg"
-                                        alt="Generic placeholder image" style="width:120px">
+                                    <img class="mr-3" src="/images/file.jpg" alt="Generic placeholder image"
+                                        style="width:120px">
                                     <div class="media-body">
                                         <h5 class="mt-0" style="font-size:16px">4 Files</h5>
                                         <a href="">Selfie Track Title goes here</a><br>
@@ -408,100 +513,133 @@ Register Account
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
-                                    <i class="fas fa-dot"></i>
+                                    <i class="fas fa-graduation-cap"></i>
                                     <div class="timeline-item">
-                                        <span class="time"><i class="fas fa-clock"></i> 12:05</span>
-                                        <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
 
                                         <div class="timeline-body">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                            quora plaxo ideeli hulu weebly balihoo...
+                                            <p>2014-2017</p>
+
+                                            <h5>Mt Kenya University</h5>
+                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
+                                            <p>I'm speaking with myself, number one, because I have a very good brain
+                                                and I've said a lot of things. I write the best
+                                                placeholder text, and I'm the biggest developer on the web card she has
+                                                is the Lorem card.</p>
+
                                         </div>
-                                        <div class="timeline-footer">
-                                            <a class="btn btn-primary btn-sm">Read more</a>
-                                            <a class="btn btn-danger btn-sm">Delete</a>
-                                        </div>
+
                                     </div>
                                 </div>
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
+
                                 <div>
-                                    <i class="fas fa-user bg-green"></i>
+                                    <i class="fas fa-graduation-cap"></i>
                                     <div class="timeline-item">
-                                        <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                                        <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your
-                                            friend request</h3>
-                                    </div>
-                                </div>
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
-                                <div>
-                                    <i class="fas fa-comments bg-yellow"></i>
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                                        <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post
-                                        </h3>
+
+
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+
                                         <div class="timeline-body">
-                                            Take me to your leader!
-                                            Switzerland is small and neutral!
-                                            We are more like Germany, ambitious and misunderstood!
+                                            <p>2014-2017</p>
+
+                                            <h5>Mt Kenya University</h5>
+                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
+                                            <p>I'm speaking with myself, number one, because I have a very good brain
+                                                and I've said a lot of things. I write the best
+                                                placeholder text, and I'm the biggest developer on the web card she has
+                                                is the Lorem card.</p>
+
                                         </div>
-                                        <div class="timeline-footer">
-                                            <a class="btn btn-warning btn-sm">View comment</a>
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div class="timeline-item">
+
+
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+
+                                        <div class="timeline-body">
+                                            <p>2014-2017</p>
+
+                                            <h5>Mt Kenya University</h5>
+                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
+
+
                                         </div>
+
                                     </div>
                                 </div>
                                 <!-- END timeline item -->
+                                <!-- timeline item -->
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <!-- The time line -->
+                            <div class="timeline">
                                 <!-- timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-green">3 Jan. 2014</span>
+                                    <span class="bg-grey">Work Experience</span>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
-                                    <i class="fa fa-camera bg-purple"></i>
+                                    <i class="fas fa-briefcase"></i>
                                     <div class="timeline-item">
-                                        <span class="time"><i class="fas fa-clock"></i> 2 days ago</span>
-                                        <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+
                                         <div class="timeline-body">
-                                            <img src="https://placehold.it/150x100" alt="...">
-                                            <img src="https://placehold.it/150x100" alt="...">
-                                            <img src="https://placehold.it/150x100" alt="...">
-                                            <img src="https://placehold.it/150x100" alt="...">
-                                            <img src="https://placehold.it/150x100" alt="...">
+                                            <p>2014-2017</p>
+
+                                            <h5>Crown Berger Kenya Limited</h5>
+                                            <a href="javascript:void(0);">Software Developer </a>
+                                            <p>I'm speaking with myself, number one, because I have a very good brain
+                                                and I've said a lot of things. I write the best
+                                                placeholder text, and I'm the biggest developer on the web card she has
+                                                is the Lorem card.</p>
+
                                         </div>
+
                                     </div>
                                 </div>
+
+                                <div>
+                                    <i class="fas fa-briefcase"></i>
+                                    <div class="timeline-item">
+
+
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+
+                                        <div class="timeline-body">
+                                            <p>2014-2017</p>
+
+                                            <h5>Safaricom</h5>
+                                            <a href="javascript:void(0);">Applications Developer </a>
+                                            <p>I'm speaking with myself, number one, because I have a very good brain
+                                                and I've said a lot of things. I write the best
+                                                placeholder text, and I'm the biggest developer on the web card she has
+                                                is the Lorem card.</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
                                 <!-- END timeline item -->
                                 <!-- timeline item -->
-                                <div>
-                                    <i class="fas fa-video bg-maroon"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fas fa-clock"></i> 5 days ago</span>
-
-                                        <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
-
-                                        <div class="timeline-body">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/tMWkeBIohBs"
-                                                    allowfullscreen=""></iframe>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-footer">
-                                            <a href="#" class="btn btn-sm bg-maroon">See comments</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END timeline item -->
-                                <div>
-                                    <i class="fas fa-clock bg-gray"></i>
-                                </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
 
@@ -639,7 +777,7 @@ Register Account
     }
 
     .userprofile.social {
-        background: url('{{url('/')}}/images/user_profile_bgs/back4.jpg') no-repeat top center;
+        background: url('{{url('/')}}/images/user_profile_bgs/back6.jpg') no-repeat top center;
         background-size: 100%;
         padding: 50px 0;
         margin: 0

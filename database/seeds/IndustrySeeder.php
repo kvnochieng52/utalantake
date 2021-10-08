@@ -250,14 +250,6 @@ class IndustrySeeder extends Seeder
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
-            [
-                'industry_id' => 1,
-                'skill_name' => 'Fish monger',
-                'order' => 1,
-                'active' => 1,
-                'created_by' => 1,
-                'updated_by' => 1,
-            ],
         ]);
     }
 }

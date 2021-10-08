@@ -17,7 +17,7 @@ class CreateTownsTable extends Migration
             $table->id();
             $table->integer('county_id')->nullable($value = true);
             $table->string('town_name')->nullable($value = true);
-            $table->integer('visible')->nullable($value = true);
+            $table->integer('active')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

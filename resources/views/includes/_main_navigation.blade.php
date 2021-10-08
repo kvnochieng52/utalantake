@@ -34,8 +34,8 @@
             @if (Auth::check())
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2"
-                        alt="User Image">
+                    <img src="/{{$user_details->profile_photo !=null ? $user_details->profile_photo : 'images/no-image.png' }}"
+                        class="user-image img-circle elevation-2" alt="User Image">
                     <span class="d-none d-md-inline">Kevin Ochieng <i class="fas fa-caret-down"></i></span>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-right" style="left: inherit; right: 0px;">

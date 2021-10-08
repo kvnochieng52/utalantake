@@ -4,182 +4,52 @@ Register Account
 @endsection
 
 @section('content')
-<!-- Navbar -->
+
 @include('includes._main_navigation')
-{{-- <div class="content-wrapper"> --}}
 
 <div style="background-color:#f5f7f6; padding-top:20px">
     <div class="container">
         <div class="row">
 
             <div class="col-md-3">
-
-
-                <div class="card">
-                    <div class="card-body box-profile" style="padding-bottom: 5px">
-                        <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="/dist/img/user4-128x128.jpg"
-                                alt="User profile picture">
-                        </div>
-
-                        <h3 class="profile-username text-center">Kevin Ochieng</h3>
-
-                        <p class="text-muted text-center">Software Engineer</p>
-
-                        <ul class="list-unstyled list-referrals">
-                            <li>
-                                <p style="margin-bottom:5px"><span class="value"><b>25%</b></span><span
-                                        class="text-muted float-right">Complete | <a href="" data-toggle="modal"
-                                            data-target=".profile-complete"><b>(Check here)</b></a>
-                                    </span></p>
-                                <div class="progress progress-xs progress-transparent custom-color-yellow">
-                                    <div class="progress-bar" data-transitiongoal="25" style="width: 25%;"
-                                        aria-valuenow="25">
-                                    </div>
-                                </div>
-                                <p style="color: red ;margin-bottom:5px;margin-top:8px">
-                                    <b>
-                                        <i class="fas fa-info-circle"></i>
-                                        Complete
-                                        Profile to be listed
-                                    </b>
-                                </p>
-                            </li>
-                        </ul>
-
-                        <ul class="list-group list-group-unbordered mb-3">
-                            <li class="list-group-item">
-                                <a href="" style="color:#5f5f5f"><b> <i class="far fa-user-circle"></i> View Profile</b>
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="" style="color:#5f5f5f"><b> <i class="far fa-clipboard"></i> Tasks/Jobs</b>
-                                </a>
-                                <a class="float-right">Post New</a>
-                            </li>
-                            {{-- <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
-                            </li> --}}
-                        </ul>
-
-                        {{-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> --}}
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-
-
-
-
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
-
-                        <p>Opportunties for you</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">View Opportunties <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Recently Added Opportunities</h3>
-
-                        {{-- <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div> --}}
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body p-0">
-                        <ul class="products-list product-list-in-card pl-2 pr-2">
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">Software Developer
-                                        <span class="badge badge-warning float-right">open</span></a>
-                                    <span class="product-description">
-                                        By: Safaricom
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">Plumbing Job
-                                        <span class="badge badge-danger float-right">Closed</span></a>
-                                    <span class="product-description">
-                                        By: Roy Willis
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">Footballer Required
-                                        <span class="badge badge-warning float-right">open</span></a>
-                                    <span class="product-description">
-                                        By: Safaricom
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">TV Set Electrician
-                                        <span class="badge badge-warning float-right">open</span></a>
-                                    <span class="product-description">
-                                        By: Pius Malala
-                                    </span>
-                                </div>
-                            </li>
-                            <!-- /.item -->
-
-                            <!-- /.item -->
-
-                        </ul>
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer text-center">
-                        <a href="javascript:void(0)" class="uppercase">View All Opportunities</a>
-                    </div>
-                    <!-- /.card-footer -->
-                </div>
-
-
-
-
-
-
-
-
-
+                @include('profile.includes._profile_sidebar')
             </div>
             <div class="col-md-9">
+                @include('notices')
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="userprofile social" style="padding-top: 20px">
-                            <div class="userpic"> <img src="/dist/img/user4-128x128.jpg" alt="" class="userpicimg">
+
+                            <div class="userpic">
+                                <a href="#modal_upload_profile_photo" data-toggle="modal"
+                                    data-target="#modal_upload_profile_photo" data-backdrop="static"
+                                    data-keyboard="false">
+                                    <img src="/{{$user_details->profile_photo !=null ? $user_details->profile_photo : 'images/no-image.png' }}"
+                                        alt="{{$user_details->first_name}} {{$user_details->last_name}} profile picture"
+                                        class="userpicimg">
+
+                                    <span style="position: absolute; margin-left:-15px"><i
+                                            class="fas fa-edit"></i></span>
+                                </a>
                             </div>
-                            <h5 class="username"> Kevin Ochieng</h5>
-                            <p class="text-center">Passionate Designer & Developer</p>
+
+                            <h5 class="username"> {{$user_details->first_name}} {{$user_details->last_name}} <a
+                                    href="#modal_update_basic_details" data-toggle="modal"
+                                    data-target="#modal_update_basic_details" data-backdrop="static"
+                                    data-keyboard="false">
+                                    <i class="fas fa-edit"></i></a></h5>
+                            <p class="text-center" style="font-size: 16px">@if($user_details->title
+                                !=null){{$user_details->title}} <a href="#modal_update_bio" data-toggle="modal"
+                                    data-target="#modal_update_bio" data-backdrop="static" data-keyboard="false">
+
+                                    <i class="fas fa-edit"></i> </a>@else
+                                <a href="#modal_update_bio" data-toggle="modal" data-target="#modal_update_bio"
+                                    data-backdrop="static" data-keyboard="false" style="color:#f15c5c">
+                                    <i class="fas fa-info-circle"></i>
+                                    Update your Title <i class="fas fa-edit"></i> </a>
+                                @endif</p>
                             <div class="socials text-center">
+
                                 {{-- <a href="" data-toggle="modal" data-target=".call" class="btn btn-btn btn-secondary">
                                     <i class="fa fa-envelope"></i> CONTACT KEVIN
                                 </a>
@@ -231,28 +101,66 @@ Register Account
 
                                     <div class="col-md-6">
 
-                                        <h5 class="card-title"><i class="fa fa-file"></i> About Kevin Ochieng</h5><br />
+                                        <h5 class="card-title" style="width: 100%"><i class="fa fa-file"></i> About
+                                            {{$user_details->first_name}} {{$user_details->last_name}}
 
-                                        <p>I'm speaking with myself, number one, because I have a very good brain and
-                                            I've
-                                            said
-                                            a lot of
-                                            things. I write the best placeholder text, and I'm the biggest developer on
-                                            the
-                                            web
-                                            card she
-                                            has is the Lorem card. <a href="" class="" data-toggle="modal"
+
+                                            <a href="#modal_update_bio" data-toggle="modal"
+                                                data-target="#modal_update_bio" data-backdrop="static"
+                                                data-keyboard="false" class="btn btn-link" style="float: right"><i
+                                                    class="fas fa-edit"></i> Edit Bio</a>
+                                        </h5>
+
+                                        <div style="clear: both"></div>
+
+
+                                        @if($user_details->bio != null)
+                                        <p>{{$user_details->bio}} <a href="" class="" data-toggle="modal"
                                                 data-target=".about">More
                                                 Details</a>
                                         </p>
 
+                                        @else
+
+                                        <a href="#modal_update_bio" data-toggle="modal" data-target="#modal_update_bio"
+                                            data-backdrop="static" data-keyboard="false">
+                                            <p style="color:#f15c5c"><span><i class="fas fa-info-circle"></i> </span>
+                                                Update
+                                                your Bio to let others
+                                                know
+                                                you better. Click on the Edit Bio to proceed</p>
+                                        </a>
+                                        @endif
+
+
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
 
                                                 <small class="text-muted"><strong> <i class="fa fa-map"></i>
                                                         Location:</strong>
                                                 </small>
-                                                <p>Nairobi, Kenya</p>
+
+                                                <a href="#modal_update_location" data-toggle="modal"
+                                                    data-target="#modal_update_location" data-backdrop="static"
+                                                    data-keyboard="false" class="btn btn-link"
+                                                    style="float: right; font-size:14px">
+
+                                                    <i class="fas fa-edit"></i>
+                                                    Edit
+                                                    Location</a>
+
+
+                                                <div style="clear: both"></div>
+                                                @if($user_details->country_id != null)
+                                                <p>{{$user_details->county_name}}, {{$user_details->country_name}}</p>
+                                                @else
+                                                <a href="#modal_update_location" data-toggle="modal"
+                                                    data-target="#modal_update_location" data-backdrop="static"
+                                                    data-keyboard="false" class="btn btn-link" style="padding-left:0px">
+                                                    <p style="color:#f15c5c"><span><i class="fas fa-info-circle"></i>
+                                                        </span>Update your Location</p>
+                                                </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -660,6 +568,11 @@ Register Account
         <br />
     </div>
 </div>
+
+@include('modals.user_profile.modal_update_bio')
+@include('modals.user_profile.modal_update_basic_details')
+@include('modals.user_profile.modal_upload_profile_photo')
+@include('modals.user_profile.modal_update_location')
 
 @include('includes._footer')
 

@@ -279,13 +279,19 @@ Register Account
                         <div class="row">
 
                             <div class="col-md-12">
-                                <a href="/profile/edit" class="btn bg-gradient-secondary btn-sm" style="float: right">
-                                    <i class="fas fa-edit"></i> Add/Edit Skills</a>
+                                <a href="#modal_add_skill" data-toggle="modal" data-target="#modal_add_skill"
+                                    data-backdrop="static" data-keyboard="false"
+                                    class="btn bg-gradient-secondary btn-sm" style="float: right">
+                                    <i class="fas fa-plus"></i> Add New Skill</a>
                             </div>
+
+
+                            @foreach($user_selected_skills as $skill)
                             <div class="col-md-6">
                                 <a href="" class="" data-toggle="modal" data-target="#skill">
                                     <div class="feeds_widget">
-                                        <h6 class="title"> Laravel &amp; PHP<small class="float-right text-muted">
+                                        <h6 class="title"> {{$skill->selected_skill_name}}<small
+                                                class="float-right text-muted">
                                                 Read More
 
                                             </small>
@@ -293,52 +299,8 @@ Register Account
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-6">
-                                <a href="" class="" data-toggle="modal" data-target="#skill">
-                                    <div class="feeds_widget">
-                                        <h6 class="title">Laravel &amp; PHP<small class="float-right text-muted">
-                                                Read More
+                            @endforeach
 
-                                            </small>
-                                        </h6>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-6">
-                                <a href="" class="" data-toggle="modal" data-target="#skill">
-                                    <div class="feeds_widget">
-                                        <h6 class="title">Laravel &amp; PHP<small class="float-right text-muted">
-                                                Read More
-
-                                            </small>
-                                        </h6>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="" class="" data-toggle="modal" data-target="#skill">
-                                    <div class="feeds_widget">
-                                        <h6 class="title"> Laravel &amp; PHP<small class="float-right text-muted">
-                                                Read More
-
-                                            </small>
-                                        </h6>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-6">
-                                <a href="" class="" data-toggle="modal" data-target="#skill">
-                                    <div class="feeds_widget">
-                                        <h6 class="title"> Laravel &amp; PHP<small class="float-right text-muted">
-                                                Read More
-
-                                            </small>
-                                        </h6>
-                                    </div>
-                                </a>
-                            </div>
 
                         </div>
 
@@ -603,6 +565,7 @@ Register Account
 @include('modals.user_profile.modal_upload_profile_photo')
 @include('modals.user_profile.modal_update_location')
 @include('modals.user_profile.modal_update_industries')
+@include('modals.user_profile.modal_add_skill')
 
 @include('includes._footer')
 
@@ -617,10 +580,15 @@ Register Account
 @section('css-scripts')
 <link href="/dist/css/custom.css" rel="stylesheet">
 <link href="/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet">
+<link href="/dist/css/jquery-ui.min.css" rel="stylesheet">
 
 <style>
+    .ui-autocomplete {
+        z-index: 9999999 !important;
+    }
+
     .feeds_widget {
-        padding: 12px 12px;
+        padding: 8px 20px;
         border: 1px solid #f0f0f0;
         margin: 4px 0;
         background-color: #f1f0ef;
@@ -738,10 +706,28 @@ Register Account
 
 @section('js-scripts')
 <script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+{{-- <script src="/dist/css/jquery-ui.min.js"></script> --}}
+
+
 
 <script>
     $(function () {
         $('.duallistbox').bootstrapDualListbox()
+
+				$( "#skill" ).autocomplete({
+					delay: 0,
+					source: '/profile/search_skills',
+					
+					select: function(e,selected) {
+                        $('#selected_skill_id').val(selected.item.id)
+						//var $item = selected.item;
+						// counter=Math.floor(Math.random() * 1000000000);
+						// searchvalid=selected.item.id;
+						// searchvaltext=selected.item.value;      
+					
+					}
+				
+				});
     });
 </script>
 

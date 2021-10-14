@@ -1,14 +1,14 @@
-<div class="modal fade" id="modal_update_basic_details">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="modal_add_skill">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Title & Bio</h5>
+                <h5 class="modal-title">Add Skill</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                @include('profile.includes._update_basic_details')
+                @include('profile.includes._add_skill')
             </div>
 
         </div>

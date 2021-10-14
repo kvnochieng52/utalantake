@@ -39,10 +39,12 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
     Route::prefix('profile')->group(function () {
         Route::get('/', 'UserProfileController@index');
         Route::get('/edit', 'UserProfileController@edit');
+        Route::get('/search_skills', 'UserProfileController@search_skills');
         Route::post('/upload_profile_photo', 'UserProfileController@upload_profile_photo');
         Route::post('/update_basic_details', 'UserProfileController@update_basic_details');
         Route::post('/update_bio', 'UserProfileController@update_bio');
         Route::post('/update_address', 'UserProfileController@update_address');
         Route::post('/update_industries', 'UserProfileController@update_industries');
+        Route::post('/add_skill', 'UserProfileController@add_skill');
     });
 });

@@ -43,5 +43,6 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
         Route::post('/update_basic_details', 'UserProfileController@update_basic_details');
         Route::post('/update_bio', 'UserProfileController@update_bio');
         Route::post('/update_address', 'UserProfileController@update_address');
+        Route::post('/update_industries', 'UserProfileController@update_industries');
     });
 });

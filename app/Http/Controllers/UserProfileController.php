@@ -6,8 +6,10 @@ use App\Models\AccountType;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Gender;
+use App\Models\Industry;
 use App\Models\Town;
 use App\Models\UserDetail;
+use App\Models\UserSelectedIndustry;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,12 +23,19 @@ class UserProfileController extends Controller
     {
 
 
+
+
         return view('profile.index')->with([
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
             'genders' => Gender::where('visible', 1)->pluck('gender_name', 'id'),
             'countries' => Country::where('active', 1)->pluck('country_name', 'id'),
             'counties' => County::where('active', 1)->pluck('county_name', 'id'),
-            'towns' => Town::where('active', 1)->pluck('town_name', 'id')
+            'towns' => Town::where('active', 1)->pluck('town_name', 'id'),
+            'industries' => Industry::where('active', 1)->pluck('industry_name', 'id'),
+            'user_selected_industries' => UserSelectedIndustry::leftJoin('industries', 'user_selected_industries.industry_id', '=', 'industries.id')
+                ->where('user_id', Auth::user()->id)
+                ->pluck('industry_name', 'industries.id'),
+            'user_selected_industries_array' => UserSelectedIndustry::where('user_id', Auth::user()->id)->pluck('industry_id')->toArray()
 
         ]);
     }
@@ -157,5 +166,27 @@ class UserProfileController extends Controller
         $user_details->save();
 
         return back()->with('success', 'Details saved successful');
+    }
+
+
+    public function update_industries(Request $request)
+    {
+        $this->validate($request, [
+            'industries' => 'required',
+        ]);
+
+        UserSelectedIndustry::where('user_id', Auth::user()->id)->delete();
+        foreach ($request->input('industries') as $industry) {
+            UserSelectedIndustry::insert([
+                'user_id' => Auth::user()->id,
+                'industry_id' => $industry,
+                'created_by' => Auth::user()->id,
+                'updated_by' => Auth::user()->id,
+                'created_at' => Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
+
+        return back()->with('success', 'Industries saved Successfully');
     }
 }

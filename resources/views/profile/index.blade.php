@@ -47,10 +47,12 @@ Register Account
                                     data-backdrop="static" data-keyboard="false" style="color:#f15c5c">
                                     <i class="fas fa-info-circle"></i>
                                     Update your Title <i class="fas fa-edit"></i> </a>
-                                @endif</p>
+                                @endif
+                            </p>
                             <div class="socials text-center">
 
-                                {{-- <a href="" data-toggle="modal" data-target=".call" class="btn btn-btn btn-secondary">
+                                {{-- <a href="" data-toggle="modal" data-target=".call"
+                                    class="btn btn-btn btn-secondary">
                                     <i class="fa fa-envelope"></i> CONTACT KEVIN
                                 </a>
 
@@ -246,18 +248,40 @@ Register Account
 
 
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Industries & Skills </h5><br />
+                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Industries & Skills </h5>
+
+
+
+                        <br />
 
                         <p>Let us know what you are talented or passionate about (Click on a skill for more details)</p>
 
                         <div class="row">
+
+
+
                             <div class="col-md-12" style="padding-bottom: 10px">
+                                <a href="#modal_update_industries" data-toggle="modal"
+                                    data-target="#modal_update_industries" data-backdrop="static" data-keyboard="false"
+                                    class="btn bg-gradient-secondary btn-sm" style="float: right">
+                                    <i class="fas fa-edit"></i> Edit Industries</a>
                                 <hr />
-                                <b>Information and Communication Technology</b>
+                                <b>
+                                    @foreach($user_selected_industries as $industry)
+                                    <span class="badge badge-info"> {{$industry}}</span>
+                                    @endforeach
+
+
+                                </b>
                                 <hr />
                             </div>
                         </div>
                         <div class="row">
+
+                            <div class="col-md-12">
+                                <a href="/profile/edit" class="btn bg-gradient-secondary btn-sm" style="float: right">
+                                    <i class="fas fa-edit"></i> Add/Edit Skills</a>
+                            </div>
                             <div class="col-md-6">
                                 <a href="" class="" data-toggle="modal" data-target="#skill">
                                     <div class="feeds_widget">
@@ -425,7 +449,8 @@ Register Account
                                     <div class="timeline-item">
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
+                                        </h3> --}}
 
                                         <div class="timeline-body">
                                             <p>2014-2017</p>
@@ -447,7 +472,8 @@ Register Account
                                     <div class="timeline-item">
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
+                                        </h3> --}}
 
                                         <div class="timeline-body">
                                             <p>2014-2017</p>
@@ -469,7 +495,8 @@ Register Account
                                     <div class="timeline-item">
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
+                                        </h3> --}}
 
                                         <div class="timeline-body">
                                             <p>2014-2017</p>
@@ -502,7 +529,8 @@ Register Account
                                     <div class="timeline-item">
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
+                                        </h3> --}}
 
                                         <div class="timeline-body">
                                             <p>2014-2017</p>
@@ -524,7 +552,8 @@ Register Account
                                     <div class="timeline-item">
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3> --}}
+                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
+                                        </h3> --}}
 
                                         <div class="timeline-body">
                                             <p>2014-2017</p>
@@ -573,6 +602,7 @@ Register Account
 @include('modals.user_profile.modal_update_basic_details')
 @include('modals.user_profile.modal_upload_profile_photo')
 @include('modals.user_profile.modal_update_location')
+@include('modals.user_profile.modal_update_industries')
 
 @include('includes._footer')
 
@@ -586,6 +616,7 @@ Register Account
 
 @section('css-scripts')
 <link href="/dist/css/custom.css" rel="stylesheet">
+<link href="/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet">
 
 <style>
     .feeds_widget {
@@ -695,11 +726,24 @@ Register Account
         padding: 50px 0;
         margin: 0
     }
+
+    .moveall,
+    .removeall {
+        display: none !important
+    }
 </style>
 
 @endsection
 
 
 @section('js-scripts')
+<script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+
+<script>
+    $(function () {
+        $('.duallistbox').bootstrapDualListbox()
+    });
+</script>
+
 
 @endsection

@@ -8,7 +8,8 @@ candidate_form',
     <div class="col-md-4">
         <div class="form-group">
             {{Form::label('country', 'Select Country',['class'=>'control-label'])}}
-            {{ Form::select('country', $countries,$user_details->country_id, ['class' => 'form-control','required'=>'required']) }}
+            {{ Form::select('country', $countries,$user_details->country_id, ['class' =>
+            'form-control','required'=>'required']) }}
             @error('country')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>
@@ -19,7 +20,8 @@ candidate_form',
     <div class="col-md-4">
         <div class="form-group">
             {{Form::label('county', 'County',['class'=>'control-label'])}}
-            {{ Form::select('county', $counties,$user_details->county_id, ['class' => 'form-control select2','placeholder'=>'--Specify--','required'=>'required']) }}
+            {{ Form::select('county', $counties,$user_details->county_id, ['class' => 'form-control
+            select2','placeholder'=>'--Specify--','required'=>'required']) }}
             @error('county')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>
@@ -30,7 +32,8 @@ candidate_form',
     <div class="col-md-4">
         <div class="form-group">
             {{Form::label('town_estate', 'Town/Estate',['class'=>'control-label'])}}
-            {{ Form::select('town_estate', $towns,$user_details->town_id, ['class' => 'form-control select2','placeholder'=>'--Specify--','required'=>'required']) }}
+            {{ Form::select('town_estate', $towns,$user_details->town_id, ['class' => 'form-control
+            select2','placeholder'=>'--Specify--','required'=>'required']) }}
             @error('town_estate')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>
@@ -45,7 +48,8 @@ candidate_form',
 
         <div class="form-group">
             {{Form::label('address', 'Phyiscal Address',['class'=>'control-label'])}}
-            {{Form::textarea('address',$user_details->address,['class'=>'form-control', 'placeholder'=>'Specify  your  physical address','style'=>'height:80px'])}}
+            {{Form::textarea('address',$user_details->address,['class'=>'form-control', 'placeholder'=>'Specify your
+            physical address','style'=>'height:80px'])}}
             @error('address')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>

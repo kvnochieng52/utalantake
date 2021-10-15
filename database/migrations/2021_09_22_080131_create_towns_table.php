@@ -15,7 +15,7 @@ class CreateTownsTable extends Migration
     {
         Schema::create('towns', function (Blueprint $table) {
             $table->id();
-            $table->integer('county_id')->nullable($value = true);
+            $table->bigInteger('county_id')->nullable($value = true);
             $table->string('town_name')->nullable($value = true);
             $table->integer('active')->nullable($value = true);
             $table->integer('created_by');

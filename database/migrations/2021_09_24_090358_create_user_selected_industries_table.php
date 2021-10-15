@@ -15,7 +15,7 @@ class CreateUserSelectedIndustriesTable extends Migration
     {
         Schema::create('user_selected_industries', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable($value = true);
+            $table->bigInteger('user_id')->nullable($value = true);
             $table->integer('industry_id')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');

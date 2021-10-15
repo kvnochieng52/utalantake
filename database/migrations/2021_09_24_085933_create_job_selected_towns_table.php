@@ -15,7 +15,7 @@ class CreateJobSelectedTownsTable extends Migration
     {
         Schema::create('job_selected_towns', function (Blueprint $table) {
             $table->id();
-            $table->integer('town_id')->nullable($value = true);
+            $table->bigInteger('town_id')->nullable($value = true);
             $table->integer('job_id')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');

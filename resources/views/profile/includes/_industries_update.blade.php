@@ -1,5 +1,5 @@
 {!!
-Form::open(['action'=>'UserProfileController@update_industries','method'=>'POST','class'=>'form
+Form::open(['action'=>'IndustryController@update_industries','method'=>'POST','class'=>'form
 candidate_form',
 'enctype'=>'multipart/form-data'])
 !!}

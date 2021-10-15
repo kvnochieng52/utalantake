@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\AccountType;
 use App\Models\Country;
 use App\Models\County;
+use App\Models\Education;
 use App\Models\Gender;
 use App\Models\Industry;
-use App\Models\Skill;
+use App\Models\JobEducationLevel;
 use App\Models\Town;
 use App\Models\UserDetail;
 use App\Models\UserSelectedIndustry;
@@ -25,8 +26,6 @@ class UserProfileController extends Controller
     {
 
 
-
-
         return view('profile.index')->with([
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
             'genders' => Gender::where('visible', 1)->pluck('gender_name', 'id'),
@@ -41,6 +40,9 @@ class UserProfileController extends Controller
             'user_selected_skills' => UserSelectedSkill::leftJoin('skills', 'user_selected_skills.skill_id', '=', 'skills.id')
                 ->where('user_id', Auth::user()->id)
                 ->get(),
+            'education_years' => Education::EducationYears(),
+            'education_months' => Education::EducationMonths(),
+            'education_levels' => JobEducationLevel::where('active', 1)->pluck('education_level_name', 'id'),
         ]);
     }
 
@@ -170,54 +172,5 @@ class UserProfileController extends Controller
         $user_details->save();
 
         return back()->with('success', 'Details saved successful');
-    }
-
-
-    public function update_industries(Request $request)
-    {
-        $this->validate($request, [
-            'industries' => 'required',
-        ]);
-
-        UserSelectedIndustry::where('user_id', Auth::user()->id)->delete();
-        foreach ($request->input('industries') as $industry) {
-            UserSelectedIndustry::insert([
-                'user_id' => Auth::user()->id,
-                'industry_id' => $industry,
-                'created_by' => Auth::user()->id,
-                'updated_by' => Auth::user()->id,
-                'created_at' => Carbon::now()->toDateTimeString(),
-                'updated_at' => Carbon::now()->toDateTimeString(),
-            ]);
-        }
-
-        return back()->with('success', 'Industries saved Successfully');
-    }
-
-
-    public function search_skills(Request $request)
-    {
-
-        return Skill::where('skill_name', 'ilike', '%' . $request->input('term') . '%')
-            ->get(['skill_name AS value', 'id'])
-            ->take(5);
-    }
-
-    public function add_skill(Request $request)
-    {
-        $this->validate($request, [
-            'skill' => 'required',
-        ]);
-
-        $user_selected_skill = new UserSelectedSkill();
-        $user_selected_skill->user_id = Auth::user()->id;
-        $user_selected_skill->skill_id = $request->input('selected_skill_id');
-        $user_selected_skill->description = $request->input('description');
-        $user_selected_skill->selected_skill_name = $request->input('skill');
-        $user_selected_skill->created_by = Auth::user()->id;
-        $user_selected_skill->updated_by = Auth::user()->id;
-        $user_selected_skill->save();
-
-        return back()->with('success', 'Skill added Successfully');
     }
 }

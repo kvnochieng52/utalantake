@@ -1,5 +1,5 @@
 {!!
-Form::open(['action'=>'UserProfileController@add_skill','method'=>'POST','class'=>'form
+Form::open(['action'=>'SkillController@add_skill','method'=>'POST','class'=>'form
 candidate_form',
 'enctype'=>'multipart/form-data'])
 !!}

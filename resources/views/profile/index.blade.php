@@ -402,7 +402,11 @@ Register Account
                             <div class="timeline">
                                 <!-- timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-grey">Education</span>
+                                    <span class="bg-grey">Education</span> <a href="#modal_add_education"
+                                        data-toggle="modal" data-target="#modal_add_education" data-backdrop="static"
+                                        data-keyboard="false" class="btn bg-gradient-secondary btn-sm"
+                                        style="float: right">
+                                        <i class="fas fa-plus"></i> Add Education</a>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
@@ -566,6 +570,7 @@ Register Account
 @include('modals.user_profile.modal_update_location')
 @include('modals.user_profile.modal_update_industries')
 @include('modals.user_profile.modal_add_skill')
+@include('modals.user_profile.modal_add_education')
 
 @include('includes._footer')
 
@@ -581,6 +586,9 @@ Register Account
 <link href="/dist/css/custom.css" rel="stylesheet">
 <link href="/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet">
 <link href="/dist/css/jquery-ui.min.css" rel="stylesheet">
+<link href="/dist/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+<link href="/plugins/select2/css/select2.min.css" rel="stylesheet">
+<link href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet">
 
 <style>
     .ui-autocomplete {
@@ -689,7 +697,7 @@ Register Account
     }
 
     .userprofile.social {
-        background: url('{{url('/')}}/images/user_profile_bgs/back6.jpg') no-repeat top center;
+        background: url('{{url('/')}}/images/user_profile_bgs/back8.jpg') no-repeat top center;
         background-size: 100%;
         padding: 50px 0;
         margin: 0
@@ -706,17 +714,34 @@ Register Account
 
 @section('js-scripts')
 <script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script src="/dist/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/plugins/select2/js/select2.full.min.js"></script>
 {{-- <script src="/dist/css/jquery-ui.min.js"></script> --}}
 
 
 
 <script>
     $(function () {
+
+          $('.date_selector').datepicker({
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            format: "dd-mm-yyyy",
+            yearRange: "-90:+00"
+        })
+
+
+        $('.select2').select2({
+             theme: 'bootstrap4'
+        })
+
+
         $('.duallistbox').bootstrapDualListbox()
 
 				$( "#skill" ).autocomplete({
 					delay: 0,
-					source: '/profile/search_skills',
+					source: '/skill/autocomplete_skills',
 					
 					select: function(e,selected) {
                         $('#selected_skill_id').val(selected.item.id)

@@ -15,7 +15,7 @@ class CreateJobSelectedEducationLevelsTable extends Migration
     {
         Schema::create('job_selected_education_levels', function (Blueprint $table) {
             $table->id();
-            $table->integer('job_id')->nullable($value = true);
+            $table->bigInteger('job_id')->nullable($value = true);
             $table->integer('education_level_id')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');

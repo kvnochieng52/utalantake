@@ -15,7 +15,7 @@ class CreateTaskUploadsTable extends Migration
     {
         Schema::create('task_uploads', function (Blueprint $table) {
             $table->id();
-            $table->integer('task_id')->nullable($value = true);
+            $table->bigInteger('task_id')->nullable($value = true);
             $table->text('task_upload_description')->nullable($value = true);
             $table->text('file_upload')->nullable($value = true);
             $table->integer('created_by');

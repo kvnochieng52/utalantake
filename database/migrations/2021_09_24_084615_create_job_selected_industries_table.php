@@ -15,7 +15,7 @@ class CreateJobSelectedIndustriesTable extends Migration
     {
         Schema::create('job_selected_industries', function (Blueprint $table) {
             $table->id();
-            $table->integer('job_id')->nullable($value = true);
+            $table->bigInteger('job_id')->nullable($value = true);
             $table->integer('industry_id')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');

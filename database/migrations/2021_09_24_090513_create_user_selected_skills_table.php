@@ -15,7 +15,7 @@ class CreateUserSelectedSkillsTable extends Migration
     {
         Schema::create('user_selected_skills', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable($value = true);
+            $table->bigInteger('user_id')->nullable($value = true);
             $table->integer('skill_id')->nullable($value = true);
             $table->text('description')->nullable($value = true);
             $table->text('selected_skill_name')->nullable($value = true);

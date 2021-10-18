@@ -15,7 +15,7 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->integer('industry_id')->nullable($value = true);
+            $table->bigInteger('industry_id')->nullable($value = true);
             $table->text('skill_name')->nullable($value = true);
             $table->integer('order')->nullable($value = true);
             $table->integer('active')->nullable($value = true);

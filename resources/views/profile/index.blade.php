@@ -398,147 +398,79 @@ Register Account
                         <h5 class="card-title"><i class="fa fa-briefcase"></i> Education & Work </h5><br /><br />
 
                         <div class="col-md-12">
-                            <!-- The time line -->
                             <div class="timeline">
-                                <!-- timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-grey">Education</span> <a href="#modal_add_education"
-                                        data-toggle="modal" data-target="#modal_add_education" data-backdrop="static"
-                                        data-keyboard="false" class="btn bg-gradient-secondary btn-sm"
-                                        style="float: right">
-                                        <i class="fas fa-plus"></i> Add Education</a>
+                                    <span class="bg-grey">Education</span>
+                                    <a href="#modal_add_education" data-toggle="modal"
+                                        data-target="#modal_add_education" data-backdrop="static" data-keyboard="false"
+                                        class="btn bg-gradient-secondary btn-sm float-right">
+                                        <i class="fas fa-plus"></i> Add Education
+                                    </a>
                                 </div>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
+
+                                @foreach($user_educations as $education)
                                 <div>
                                     <i class="fas fa-graduation-cap"></i>
                                     <div class="timeline-item">
 
-
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
-                                        </h3> --}}
-
                                         <div class="timeline-body">
-                                            <p>2014-2017</p>
+                                            <p>{{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{
+                                                \Carbon\Carbon::parse($education->end_date)->format('M Y')}} </p>
 
-                                            <h5>Mt Kenya University</h5>
-                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
-                                            <p>I'm speaking with myself, number one, because I have a very good brain
-                                                and I've said a lot of things. I write the best
-                                                placeholder text, and I'm the biggest developer on the web card she has
-                                                is the Lorem card.</p>
+                                            <h5>{{$education->institute_name}}</h5>
+                                            <a href="">({{$education->education_level_name}})
+                                                {{$education->course_name}} </a>
+                                            <p>{{$education->description}}</p>
 
                                         </div>
 
                                     </div>
                                 </div>
 
-                                <div>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <div class="timeline-item">
+                                @endforeach
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
-                                        </h3> --}}
-
-                                        <div class="timeline-body">
-                                            <p>2014-2017</p>
-
-                                            <h5>Mt Kenya University</h5>
-                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
-                                            <p>I'm speaking with myself, number one, because I have a very good brain
-                                                and I've said a lot of things. I write the best
-                                                placeholder text, and I'm the biggest developer on the web card she has
-                                                is the Lorem card.</p>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <div class="timeline-item">
-
-
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
-                                        </h3> --}}
-
-                                        <div class="timeline-body">
-                                            <p>2014-2017</p>
-
-                                            <h5>Mt Kenya University</h5>
-                                            <a href="javascript:void(0);">Bachelors Information Studies </a>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
                             </div>
                         </div>
 
 
                         <div class="col-md-12">
-                            <!-- The time line -->
                             <div class="timeline">
-                                <!-- timeline time label -->
+
                                 <div class="time-label">
                                     <span class="bg-grey">Work Experience</span>
+                                    <a href="#modal_add_experience" data-toggle="modal"
+                                        data-target="#modal_add_experience" data-backdrop="static" data-keyboard="false"
+                                        class="btn bg-gradient-secondary btn-sm float-right">
+                                        <i class="fas fa-plus"></i> Add Experience
+                                    </a>
                                 </div>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
+
+                                @foreach($user_work_experiences as $experience)
+
                                 <div>
                                     <i class="fas fa-briefcase"></i>
                                     <div class="timeline-item">
-
-
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
-                                        </h3> --}}
-
                                         <div class="timeline-body">
-                                            <p>2014-2017</p>
+                                            <p>{{\Carbon\Carbon::parse($experience->start_date)->format('M Y')}} -
+                                                {{ $experience->current==1 ? "Current":
+                                                \Carbon\Carbon::parse($experience->end_date)->format('M Y')}}
+                                            </p>
 
-                                            <h5>Crown Berger Kenya Limited</h5>
-                                            <a href="javascript:void(0);">Software Developer </a>
-                                            <p>I'm speaking with myself, number one, because I have a very good brain
-                                                and I've said a lot of things. I write the best
-                                                placeholder text, and I'm the biggest developer on the web card she has
-                                                is the Lorem card.</p>
+                                            <h5>{{$experience->company_name}}</h5>
+                                            <a href="">{{$experience->title}} </a>
+                                            <p>{{$experience->role_description}}</p>
 
                                         </div>
 
                                     </div>
                                 </div>
 
-                                <div>
-                                    <i class="fas fa-briefcase"></i>
-                                    <div class="timeline-item">
+                                @endforeach
 
 
-                                        {{-- <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email
-                                        </h3> --}}
-
-                                        <div class="timeline-body">
-                                            <p>2014-2017</p>
-
-                                            <h5>Safaricom</h5>
-                                            <a href="javascript:void(0);">Applications Developer </a>
-                                            <p>I'm speaking with myself, number one, because I have a very good brain
-                                                and I've said a lot of things. I write the best
-                                                placeholder text, and I'm the biggest developer on the web card she has
-                                                is the Lorem card.</p>
-
-                                        </div>
-
-                                    </div>
-                                </div>
 
 
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
                             </div>
                         </div>
 
@@ -548,14 +480,6 @@ Register Account
 
 
             </div>
-
-            {{-- <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        Side bar 2
-                    </div>
-                </div>
-            </div> --}}
         </div>
 
 
@@ -571,6 +495,7 @@ Register Account
 @include('modals.user_profile.modal_update_industries')
 @include('modals.user_profile.modal_add_skill')
 @include('modals.user_profile.modal_add_education')
+@include('modals.user_profile.modal_add_experience')
 
 @include('includes._footer')
 
@@ -739,20 +664,29 @@ Register Account
 
         $('.duallistbox').bootstrapDualListbox()
 
-				$( "#skill" ).autocomplete({
-					delay: 0,
-					source: '/skill/autocomplete_skills',
-					
-					select: function(e,selected) {
-                        $('#selected_skill_id').val(selected.item.id)
-						//var $item = selected.item;
-						// counter=Math.floor(Math.random() * 1000000000);
-						// searchvalid=selected.item.id;
-						// searchvaltext=selected.item.value;      
-					
-					}
-				
-				});
+        $( "#skill" ).autocomplete({
+            delay: 0,
+            source: '/skill/autocomplete_skills',
+            
+            select: function(e,selected) {
+                $('#selected_skill_id').val(selected.item.id)
+                //var $item = selected.item;
+                // counter=Math.floor(Math.random() * 1000000000);
+                // searchvalid=selected.item.id;
+                // searchvaltext=selected.item.value;      
+            
+            }
+        
+        });
+
+        $("#current_check").on("click", function(){
+            if(this.checked) {
+                $('.exp_end_date_cover').hide();
+            } else {
+               $('.exp_end_date_cover').show();
+            }
+        }); 
+        
     });
 </script>
 

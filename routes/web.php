@@ -58,4 +58,9 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
     Route::prefix('education')->group(function () {
         Route::post('/add_education', 'EducationController@add_education');
     });
+
+
+    Route::prefix('work_experience')->group(function () {
+        Route::post('/add_work_experience', 'WorkExperienceController@add_work_experience');
+    });
 });

@@ -9,10 +9,12 @@ use App\Models\Education;
 use App\Models\Gender;
 use App\Models\Industry;
 use App\Models\JobEducationLevel;
+use App\Models\JobType;
 use App\Models\Town;
 use App\Models\UserDetail;
 use App\Models\UserSelectedIndustry;
 use App\Models\UserSelectedSkill;
+use App\Models\WorkExperience;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,6 +28,8 @@ class UserProfileController extends Controller
     {
 
 
+
+
         return view('profile.index')->with([
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
             'genders' => Gender::where('visible', 1)->pluck('gender_name', 'id'),
@@ -33,6 +37,10 @@ class UserProfileController extends Controller
             'counties' => County::where('active', 1)->pluck('county_name', 'id'),
             'towns' => Town::where('active', 1)->pluck('town_name', 'id'),
             'industries' => Industry::where('active', 1)->pluck('industry_name', 'id'),
+            'education_years' => Education::EducationYears(),
+            'education_months' => Education::EducationMonths(),
+            'job_types' => JobType::where('active', 1)->pluck('job_type_name', 'id'),
+            'education_levels' => JobEducationLevel::where('active', 1)->pluck('education_level_name', 'id'),
             'user_selected_industries' => UserSelectedIndustry::leftJoin('industries', 'user_selected_industries.industry_id', '=', 'industries.id')
                 ->where('user_id', Auth::user()->id)
                 ->pluck('industry_name', 'industries.id'),
@@ -40,9 +48,18 @@ class UserProfileController extends Controller
             'user_selected_skills' => UserSelectedSkill::leftJoin('skills', 'user_selected_skills.skill_id', '=', 'skills.id')
                 ->where('user_id', Auth::user()->id)
                 ->get(),
-            'education_years' => Education::EducationYears(),
-            'education_months' => Education::EducationMonths(),
-            'education_levels' => JobEducationLevel::where('active', 1)->pluck('education_level_name', 'id'),
+            'user_educations' => Education::leftJoin('job_education_levels', 'education.qualification', '=', 'job_education_levels.id')
+                ->where('education.user_id', Auth::user()->id)
+                ->get([
+                    'education.*',
+                    'job_education_levels.education_level_name',
+                ]),
+            'user_work_experiences' => WorkExperience::leftJoin('job_types', 'work_experiences.employment_type', '=', 'job_types.id')
+                ->where('work_experiences.user_id', Auth::user()->id)
+                ->get([
+                    'work_experiences.*',
+                    'job_types.job_type_name',
+                ])
         ]);
     }
 

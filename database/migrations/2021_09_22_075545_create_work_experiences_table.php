@@ -16,9 +16,12 @@ class CreateWorkExperiencesTable extends Migration
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->nullable($value = true);
-            $table->date('from_date')->nullable($value = true);
-            $table->date('to_date')->nullable($value = true);
-            $table->text('role')->nullable($value = true);
+            $table->text('company_name')->nullable($value = true);
+            $table->text('title')->nullable($value = true);
+            $table->integer('employment_type')->nullable($value = true);
+            $table->integer('current')->nullable($value = true);
+            $table->date('start_date')->nullable($value = true);
+            $table->date('end_date')->nullable($value = true);
             $table->text('role_description')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');

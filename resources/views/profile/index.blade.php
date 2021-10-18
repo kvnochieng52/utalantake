@@ -316,7 +316,14 @@ Register Account
 
                     <div class="card-body">
 
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5><br /><br />
+                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
+                        <a href="#modal_add_portfolio" data-toggle="modal" data-target="#modal_add_portfolio"
+                            data-backdrop="static" data-keyboard="false"
+                            class="btn bg-gradient-secondary btn-sm float-right">
+                            <i class="fas fa-plus"></i> Add Portfolio
+                        </a>
+
+                        <br /><br />
 
                         <div class="row">
 
@@ -496,6 +503,7 @@ Register Account
 @include('modals.user_profile.modal_add_skill')
 @include('modals.user_profile.modal_add_education')
 @include('modals.user_profile.modal_add_experience')
+@include('modals.user_profile.modal_upload_portfolio')
 
 @include('includes._footer')
 

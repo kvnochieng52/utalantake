@@ -63,4 +63,9 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
     Route::prefix('work_experience')->group(function () {
         Route::post('/add_work_experience', 'WorkExperienceController@add_work_experience');
     });
+
+
+    Route::prefix('portfolio')->group(function () {
+        Route::any('/upload_portfolio', 'PortfolioController@upload_portfolio');
+    });
 });

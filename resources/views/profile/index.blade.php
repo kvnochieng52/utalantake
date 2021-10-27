@@ -325,6 +325,8 @@ Register Account
 
                         <br /><br />
 
+
+
                         <div class="row">
 
                             <div class="col-md-6">
@@ -522,6 +524,7 @@ Register Account
 <link href="/dist/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 <link href="/plugins/select2/css/select2.min.css" rel="stylesheet">
 <link href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet">
+<link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet">
 
 <style>
     .ui-autocomplete {
@@ -630,7 +633,7 @@ Register Account
     }
 
     .userprofile.social {
-        background: url('{{url('/')}}/images/user_profile_bgs/back8.jpg') no-repeat top center;
+        background: url('{{url('/')}}/images/user_profile_bgs/back6.jpg') no-repeat top center;
         background-size: 100%;
         padding: 50px 0;
         margin: 0
@@ -649,11 +652,13 @@ Register Account
 <script src="/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <script src="/dist/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="/plugins/select2/js/select2.full.min.js"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 {{-- <script src="/dist/css/jquery-ui.min.js"></script> --}}
 
 
 
 <script>
+    Dropzone.autoDiscover = false;
     $(function () {
 
           $('.date_selector').datepicker({
@@ -694,7 +699,66 @@ Register Account
                $('.exp_end_date_cover').show();
             }
         }); 
-        
+
+
+            $("#dropzone_file").dropzone({
+                //url: 'urlForDropzone1.php', 
+                //acceptedFiles: 'application/pdf',
+             // addRemoveLinks: true,
+
+                 clickable: true,
+                init: function(){
+                    this.on("addedfile", function(file) { 
+                    //alert("Added" + file.name + " on Dropzone 1."); 
+                    }),
+                   // this.on("removedfile", function(file) { new_file_removed(file); });
+                    this.on("success", function(file,response) {
+                        //alert("here")
+                        console.dir(response);
+                    })
+                }
+            });
+
+
+
+       //var dropzone = new Dropzone("div.my-dropzone", { url: "/file/post" });
+
+
+    // var myNewdDropzone = new Dropzone("#my-great-dropzone",  {
+    //     url: "my-ajax.php",
+    //     method: "POST",
+    //     addRemoveLinks: false,
+    //     clickable: true,
+    //     previewTemplate: document.querySelector('#preview-template').innerHTML,
+    //     init : function() {
+    //         this.on("addedfile", function(file) { new_file_added(file); });
+    //         this.on("thumbnail", function(file,fileurl) { new_thumbnail_added(file); });
+    //         this.on("removedfile", function(file) { new_file_removed(file); });
+    //         this.on("totaluploadprogress", function(progress) { display_progress(progress); });
+    //         this.on("queuecomplete", function() { all_files_uploaded(); });
+    //         //this.on("processing", function(file) { new_file_processed(file); });
+    //     }
+    // });
+
+        // Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+           
+           
+        //     paramName: "file", // The name that will be used to transfer the file
+        //     maxFilesize: 2, // MB
+        //     addRemoveLinks : true,
+            
+        //     accept: function(file, done) {
+        //         if (file.name == "justinbieber.jpg") {
+        //             done("Naha, you don't.");
+        //         }
+        //         else { done(); }
+        //     },
+
+        //     error: function(response){
+        //         alert(response.xhr.responseText);
+        //     }
+        // };
+                
     });
 </script>
 

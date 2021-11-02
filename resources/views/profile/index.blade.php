@@ -661,6 +661,11 @@ Register Account
     Dropzone.autoDiscover = false;
     $(function () {
 
+
+
+
+        var uploaded_files=[]
+
           $('.date_selector').datepicker({
             autoclose: true,
             changeMonth: true,
@@ -707,18 +712,26 @@ Register Account
              // addRemoveLinks: true,
 
                  clickable: true,
+                 dictDefaultMessage: "Click here to upload files or Drag and drop files here...",
                 init: function(){
                     this.on("addedfile", function(file) { 
-                    //alert("Added" + file.name + " on Dropzone 1."); 
+                   
                     }),
                    // this.on("removedfile", function(file) { new_file_removed(file); });
                     this.on("success", function(file,response) {
-                        //alert("here")
-                        console.dir(response);
+                        uploaded_files.push({
+                            file:response,
+                            type:file.type
+                        })
+
+                        $('.portfolio_file').val(JSON.stringify(uploaded_files))
+
                     })
                 }
             });
 
+
+           
 
 
        //var dropzone = new Dropzone("div.my-dropzone", { url: "/file/post" });

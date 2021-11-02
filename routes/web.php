@@ -67,5 +67,6 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 
     Route::prefix('portfolio')->group(function () {
         Route::any('/upload_portfolio', 'PortfolioController@upload_portfolio');
+        Route::any('/add_portfolio', 'PortfolioController@add_portfolio');
     });
 });

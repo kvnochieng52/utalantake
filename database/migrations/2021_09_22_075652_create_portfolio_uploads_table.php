@@ -17,6 +17,7 @@ class CreatePortfolioUploadsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable($value = true);
             $table->bigInteger('portfolio_id')->nullable($value = true);
+            $table->text('portfolio_type')->nullable($value = true);
             $table->text('portfolio_upload')->nullable($value = true);
             $table->text('portfolio_image')->nullable($value = true);
             $table->integer('created_by');

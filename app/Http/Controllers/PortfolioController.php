@@ -24,7 +24,7 @@ class PortfolioController extends Controller
 
             move_uploaded_file($tmpFile, $upload_path);
 
-            echo $file_name;
+            echo 'portfolio_uploads/' . $file_name;
 
             // header('Content-type: application/json');
             // echo json_encode([
@@ -50,9 +50,41 @@ class PortfolioController extends Controller
         $portfolio->save();
 
 
+
+
         $files = json_decode($request->input('portfolio_file'));
+        $default_type = '';
+        $default_url = '';
+        $found_default_thumb = false;
 
         foreach ($files as $file) {
+
+            if ($found_default_thumb == false) {
+
+                $default_type = $file->type;
+
+                $rand = rand(1, 4);
+
+                if (strpos($file->type, 'video') !== false) {
+                    $default_url = 'images/portfolio_place_holders/video_bg/video' . $rand . '.jpg';
+                }
+
+                if (strpos($file->type, 'audio') !== false) {
+                    $default_url = 'images/portfolio_place_holders/video_bg/video' . $rand . '.jpg';
+                }
+
+                if (strpos($file->type, 'application') !== false) {
+                    $default_url = 'images/portfolio_place_holders/file_placeholder.jpg';
+                }
+
+
+                if (strpos($file->type, 'image') !== false) {
+                    $found_default_thumb = true;
+                    $default_type = $file->type;
+                    $default_url =  $file->file;
+                }
+            }
+
             PortfolioUpload::insert([
                 'user_id' => Auth::user()->id,
                 'portfolio_id' => $portfolio->id,
@@ -64,6 +96,14 @@ class PortfolioController extends Controller
                 'updated_at' => Carbon::now()->toDateTimeString(),
             ]);
         }
+
+
+        $portfolio_default_thumb_update = Portfolio::find($portfolio->id);
+        $portfolio_default_thumb_update->default_thumb_type = $default_type;
+        $portfolio_default_thumb_update->default_thumb_url = $default_url;
+        $portfolio_default_thumb_update->updated_by = Auth::user()->id;
+        $portfolio_default_thumb_update->save();
+
 
         return back()->with('success', 'Porfolio added successfully');
     }

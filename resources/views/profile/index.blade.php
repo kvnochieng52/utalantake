@@ -315,87 +315,98 @@ Register Account
 
 
                     <div class="card-body">
+                        <div style="width: 100%; padding-bottom:20px">
+                            <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
+                            <a href="#modal_add_portfolio" data-toggle="modal" data-target="#modal_add_portfolio"
+                                data-backdrop="static" data-keyboard="false"
+                                class="btn bg-gradient-secondary btn-sm float-right">
+                                <i class="fas fa-plus"></i> Add Portfolio
+                            </a>
 
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
-                        <a href="#modal_add_portfolio" data-toggle="modal" data-target="#modal_add_portfolio"
-                            data-backdrop="static" data-keyboard="false"
-                            class="btn bg-gradient-secondary btn-sm float-right">
-                            <i class="fas fa-plus"></i> Add Portfolio
-                        </a>
+                            <br /><br />
 
-                        <br /><br />
+                        </div>
 
 
 
                         <div class="row">
 
-                            <div class="col-md-6">
+                            @foreach ($user_portfolio as $portfolio)
 
-                                <div class="media">
-                                    <a href="" class="" data-toggle="modal" data-target=".video">
-                                        <img class="mr-3" src="/images/video3.jpg" alt="Generic placeholder image"
-                                            style="width:120px">
-                                    </a>
-                                    <div class="media-body">
-                                        <h5 class="mt-0" style="font-size:16px">6 Videos</h5>
-                                        <a href="" class="" data-toggle="modal" data-target=".video">Selfie Track
-                                            Title goes here </a><br>
-                                        <a href="">Another Video title goes here</a><br>
-                                        <a href="">Another Video goes here</a>
+                            {{-- <div class="col-md-6">
+
+                                <div style="padding-bottom: 20px">
+
+                                    <div class="media">
+                                        <a href="" class="" data-toggle="modal" data-target=".video">
+                                            <img class="mr-3" src="/{{$portfolio->default_thumb_url}}"
+                                                alt="Generic placeholder image" style="width:100px" class="rounded">
+                                        </a>
+                                        <div class="media-body">
+
+                                            <h6><a href="" class="" data-toggle="modal"
+                                                    data-target=".video">{{$portfolio->portfolio_name}} </a></h6>
+                                            <p class="mt-0" style="font-size:16px">{{count($portfolio->files)}} files
+                                            </p>
+                                        </div>
                                     </div>
+
                                 </div>
 
+                            </div> --}}
 
 
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <a href="" class="" data-toggle="modal" data-target=".image">
-                                        <img class="mr-3" src="/images/image2.jpg" alt="Generic placeholder image"
-                                            style="width:120px">
-                                    </a>
-                                    <div class="media-body">
-                                        <h5 class="mt-0" style="font-size:16px">3 Images</h5>
-                                        <a href="" class="" data-toggle="modal" data-target=".image">Bead work 1 title
-                                            here</a><br>
-                                        <a href="">Photography 1 image</a><br>
-                                        <a href="">Another Video goes here</a>
+                            <div class="col-md-4">
+                                <a href="">
+                                    <div style="margin-bottom: 20px;">
+                                        <div class="thumb_container" style="height:170px; overflow:hidden; width:100%">
+                                            <img src="/{{$portfolio->default_thumb_url}}"
+                                                alt="{{$portfolio->portfolio_name}}" style="max-width:100%; 
+                                             @if (strpos($portfolio->default_thumb_type, 'image') !== false)
+                    
+                                            @else
+                                                filter: blur(4px);
+                                                -webkit-filter: blur(4px);
+                                            @endif
+                                            ">
+                                            <div class="content">
+                                                <div class="div_text">
+
+                                                    <?php 
+                                                    if (strpos($portfolio->default_thumb_type, 'video') !== false) {
+                                                        $icon = 'video';
+                                                    }elseif (strpos($portfolio->default_thumb_type, 'audio') !== false) {
+                                                        $icon = 'volume-up';
+                                                    }elseif (strpos($portfolio->default_thumb_type, 'image') !== false) {
+                                                        $icon = 'camera';
+                                                    }else{
+                                                        $icon = 'file-alt';
+                                                    }
+
+                                                 ?>
+
+                                                    <p style="margin-bottom: 0px; font-size:18px"><i
+                                                            class="fas fa-{{$icon}}"></i></p>
+                                                    <p style="margin-bottom: 0px; margin-bottom:0px">
+                                                        {{$portfolio->portfolio_name}}</p>
+                                                    <p style="font-size: 12px">({{count($portfolio->files)}} {{
+                                                        count($portfolio->files) > 1 ? "files" : "file"}})</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-
+                                </a>
                             </div>
+                            {{-- <div class="col-md-4">
 
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <img class="mr-3" src="/images/audio.jpg" alt="Generic placeholder image"
-                                        style="width:120px">
-                                    <div class="media-body">
-                                        <h5 class="mt-0" style="font-size:16px">4 Audio</h5>
-                                        <a href="">Selfie Track Title goes here</a><br>
-                                        <a href="">Another Video title goes here</a><br>
-                                        <a href="">Another Video goes here</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <img class="mr-3" src="/images/file.jpg" alt="Generic placeholder image"
-                                        style="width:120px">
-                                    <div class="media-body">
-                                        <h5 class="mt-0" style="font-size:16px">4 Files</h5>
-                                        <a href="">Selfie Track Title goes here</a><br>
-                                        <a href="">Another Video title goes here</a><br>
-                                        <a href="">Another Video goes here</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
+                                <img src="images/user_profile_bgs/back4.jpg" style="width: 100%">
+                                {{$portfolio->portfolio_name}}
+                            </div> --}}
+                            @endforeach
                         </div>
+
                     </div>
                 </div>
 
@@ -527,6 +538,44 @@ Register Account
 <link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet">
 
 <style>
+    .thumb_container {
+        position: relative;
+        max-width: 800px;
+        /* Maximum width */
+        margin: 0 auto;
+        /* Center it */
+    }
+
+    .thumb_container .div_text {
+        position: absolute;
+        top: 20%;
+        text-align: center;
+        /* transform: translate(-50%, -50%); */
+        color: #fff;
+        text-align: center;
+        width: 100%;
+    }
+
+    .thumb_container .content {
+        position: absolute;
+        /* Position the background text */
+        bottom: 0;
+        /* At the bottom. Use top:0 to append it to the top */
+        background: rgb(0, 0, 0);
+        /* Fallback color */
+        background: rgba(0, 0, 0, 0.5);
+        /* Black background with 0.5 opacity */
+        color: #f1f1f1;
+        /* Grey text *
+        /* Full width */
+        padding: 5px;
+        /* Some padding */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
     .ui-autocomplete {
         z-index: 9999999 !important;
     }

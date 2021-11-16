@@ -328,41 +328,48 @@ Register Account
                         </div>
 
 
+                        <div class="" style="height: 400px; overflow-x: hidden;
+                overflow-y: auto;">
 
-                        <div class="row">
+                            <div class="row">
 
-                            @foreach ($user_portfolio as $portfolio)
+                                @foreach ($user_portfolio as $portfolio)
 
-                            {{-- <div class="col-md-6">
+                                {{-- <div class="col-md-6">
 
-                                <div style="padding-bottom: 20px">
+                                    <div style="padding-bottom: 20px">
 
-                                    <div class="media">
-                                        <a href="" class="" data-toggle="modal" data-target=".video">
-                                            <img class="mr-3" src="/{{$portfolio->default_thumb_url}}"
-                                                alt="Generic placeholder image" style="width:100px" class="rounded">
-                                        </a>
-                                        <div class="media-body">
+                                        <div class="media">
+                                            <a href="" class="" data-toggle="modal" data-target=".video">
+                                                <img class="mr-3" src="/{{$portfolio->default_thumb_url}}"
+                                                    alt="Generic placeholder image" style="width:100px" class="rounded">
+                                            </a>
+                                            <div class="media-body">
 
-                                            <h6><a href="" class="" data-toggle="modal"
-                                                    data-target=".video">{{$portfolio->portfolio_name}} </a></h6>
-                                            <p class="mt-0" style="font-size:16px">{{count($portfolio->files)}} files
-                                            </p>
+                                                <h6><a href="" class="" data-toggle="modal"
+                                                        data-target=".video">{{$portfolio->portfolio_name}} </a></h6>
+                                                <p class="mt-0" style="font-size:16px">{{count($portfolio->files)}}
+                                                    files
+                                                </p>
+                                            </div>
                                         </div>
+
                                     </div>
 
-                                </div>
-
-                            </div> --}}
+                                </div> --}}
 
 
 
-                            <div class="col-md-4">
-                                <a href="">
-                                    <div style="margin-bottom: 20px;">
-                                        <div class="thumb_container" style="height:170px; overflow:hidden; width:100%">
-                                            <img src="/{{$portfolio->default_thumb_url}}"
-                                                alt="{{$portfolio->portfolio_name}}" style="max-width:100%; 
+                                <div class="col-md-4">
+                                    {{-- <a href="#modal-xl" data-toggle="modal" data-target="#modal-xl"
+                                        data-portfolio_id="{{$portfolio->id}}" id=""> --}}
+
+                                        <a href="" class="portfolio_view" data-portfolio_id="{{$portfolio->id}}">
+                                            <div style="margin-bottom: 20px;">
+                                                <div class="thumb_container"
+                                                    style="height:170px; overflow:hidden; width:100%">
+                                                    <img src="/{{$portfolio->default_thumb_url}}"
+                                                        alt="{{$portfolio->portfolio_name}}" style="max-width:100%; 
                                              @if (strpos($portfolio->default_thumb_type, 'image') !== false)
                     
                                             @else
@@ -370,12 +377,12 @@ Register Account
                                                 -webkit-filter: blur(4px);
                                             @endif
                                             ">
-                                            <div class="content">
-                                                <div class="div_text">
+                                                    <div class="content">
+                                                        <div class="div_text">
 
-                                                    <?php 
+                                                            <?php 
                                                     if (strpos($portfolio->default_thumb_type, 'video') !== false) {
-                                                        $icon = 'video';
+                                                        $icon = 'play';
                                                     }elseif (strpos($portfolio->default_thumb_type, 'audio') !== false) {
                                                         $icon = 'volume-up';
                                                     }elseif (strpos($portfolio->default_thumb_type, 'image') !== false) {
@@ -386,25 +393,26 @@ Register Account
 
                                                  ?>
 
-                                                    <p style="margin-bottom: 0px; font-size:18px"><i
-                                                            class="fas fa-{{$icon}}"></i></p>
-                                                    <p style="margin-bottom: 0px; margin-bottom:0px">
-                                                        {{$portfolio->portfolio_name}}</p>
-                                                    <p style="font-size: 12px">({{count($portfolio->files)}} {{
-                                                        count($portfolio->files) > 1 ? "files" : "file"}})</p>
+                                                            <p style="margin-bottom: 0px; font-size:18px"><i
+                                                                    class="fas fa-{{$icon}}"></i></p>
+                                                            <p style="margin-bottom: 0px; margin-bottom:0px">
+                                                                {{$portfolio->portfolio_name}}</p>
+                                                            <p style="font-size: 12px">({{count($portfolio->files)}} {{
+                                                                count($portfolio->files) > 1 ? "files" : "file"}})</p>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-
                                             </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            {{-- <div class="col-md-4">
+                                        </a>
+                                </div>
+                                {{-- <div class="col-md-4">
 
-                                <img src="images/user_profile_bgs/back4.jpg" style="width: 100%">
-                                {{$portfolio->portfolio_name}}
-                            </div> --}}
-                            @endforeach
+                                    <img src="images/user_profile_bgs/back4.jpg" style="width: 100%">
+                                    {{$portfolio->portfolio_name}}
+                                </div> --}}
+                                @endforeach
+                            </div>
                         </div>
 
                     </div>
@@ -506,6 +514,41 @@ Register Account
         <br />
         <br />
     </div>
+</div>
+
+<div class="modal fade" id="modal-portfolio-view">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header" style="padding:10px">
+                <h5 class="modal-title">View Portfolio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <div class="tabbed_slideshow">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="portfolio_details"></div>
+
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 
 @include('modals.user_profile.modal_update_bio')
@@ -692,6 +735,48 @@ Register Account
     .removeall {
         display: none !important
     }
+
+    .portfolio_details_table td,
+    .portfolio_details_table th {
+        padding: 5px
+    }
+
+    *::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    *::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    *::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 1000px;
+    }
+
+    /* Handle on hover */
+    *::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    #style-1::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #style-1::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    #style-1::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: #555;
+    }
 </style>
 
 @endsection
@@ -711,6 +796,140 @@ Register Account
     $(function () {
 
 
+
+
+    $('.portfolio_view').click(function(e){
+        e.preventDefault();
+
+        
+
+        $('.tabbed_slideshow').html('<p><i class="fas fa-spinner fa-spin"></i> Loading please wait...</p>')
+        $('.portfolio_details').html('');
+        
+       var portfolio_id= $(this).attr("data-portfolio_id");
+
+       $.ajax({
+                type:'GET',
+                url:'/portfolio/view_portfolio',
+				data:{'portfolio_id':portfolio_id},
+                success:function(data){
+
+
+                // var portfolio_details='<h4>'+data.portfolio_details.portfolio_name+'</h4>'; 
+                // portfolio_details+='<p>'+data.portfolio_details.portfolio_description+'</p>';
+                // portfolio_details+='<hr/>';
+                // portfolio_details+='<p><b>Portfolio Link:</b/><br/>'
+
+                // portfolio_details+='<a target="_blank" href="'+data.portfolio_details.portfolio_url+'"><i class="fas fa-link"></i> Visit Link';
+
+                // portfolio_details+='</a></p>';
+
+
+                var portfolio_details='<table class="table table-striped table-bordered portfolio_details_table">';
+                    portfolio_details+='<body>';
+                    portfolio_details+='<tr><th>Portfolio Title</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_details.portfolio_name+'</td></tr>';
+                    portfolio_details+='<tr><th>Description</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_details.portfolio_description+'</td></tr>';
+                    portfolio_details+='<tr><th>Portfolio Link</th></tr>';
+                    portfolio_details+='<tr><td><a target="_blank" href="'+data.portfolio_details.portfolio_url+'"><i class="fas fa-link"></i> Visit Link</a></td></tr>'; 
+                    portfolio_details+='<tr><th>Total Files</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_files.length+'</td></tr>';
+                    portfolio_details+='</body>';
+                    portfolio_details+='</table>';
+                
+    
+        
+
+                 $('.portfolio_details').html(portfolio_details);
+
+                   var tab='<div class="card card-tabs">';
+                        tab+='<div class="card-body">';
+                        tab+='<div class="tab-content" id="custom-tabs-three-tabContent">';
+
+                        var p_count=1
+                        $.each(data.portfolio_files, function(key,value) {
+
+                            var active_css ="";
+
+                            if(key==0){
+                                active_css ='active';
+                            }
+
+                            tab+='<div class="tab-pane fade show '+active_css+'" id="custom-tabs-three-'+key+'" role="tabpanel" aria-labelledby="custom-tabs-three-'+key+'-tab">'
+                            
+                              if(value.portfolio_type.indexOf("image") != -1){
+                                tab+='<img src="/'+value.portfolio_upload+'" style="width:100%">';
+                              }else if (value.portfolio_type.indexOf("video") != -1) {
+                                tab+='<video width="100%" height="400" controls>';
+                                tab+='<source src="/'+value.portfolio_upload+'">';
+                                tab+='Your browser does not support the video tag.';
+                                tab+='</video>';
+                             }else if (value.portfolio_type.indexOf("audio") != -1) {
+                                tab+='<audio controls width="100%">';
+                                tab+='<source src="'+value.portfolio_upload+'">';
+                                tab+='Your browser does not support the audio element';
+                                tab+='</audio>';
+                            
+                             }else{
+                                tab+='<a target="_blank" href="/'+value.portfolio_upload+'" class="btn btn-app" style="height:auto; width:100%"> <i class="fas fa-file" style="font-size:80px"></i> <span style="font-size:16px">Download File</span></a>'
+                             }
+
+                                var file_no=key+1;
+                            
+                                tab+='<p>File: '+file_no+' of '+ data.portfolio_files.length+'</p>';
+
+                            tab+='</div>';
+
+
+                        });
+                           
+                               
+
+                            tab+='</div>';
+                        tab+='</div>';
+
+
+                        tab+='<div class="card-header p-0 pt-1 border-bottom-0">';
+                           tab+='<ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">';
+
+
+                                    $.each(data.portfolio_files, function(key,value) {
+
+                                        var active_css_tab ="";
+                                        
+                                        if(key==0){
+                                             active_css_tab ='active';
+                                        }
+                                        tab+='<li class="nav-item">'
+                                             tab+='<a class="nav-link '+active_css_tab+'" id="custom-tabs-three-'+key+'-tab" data-toggle="pill" href="#custom-tabs-three-'+key+'" role="tab" aria-controls="custom-tabs-three-'+key+'" aria-selected="true"><i class="fas fa-circle" style="font-size: 18px;"></i>';
+                                        tab+='</a></li>';
+                                    });
+                                
+                           tab+='</ul>';
+                        tab+='</div>';
+
+                    tab+='</div>';
+
+                   $('.tabbed_slideshow').html(tab)
+					// var $dropdown = $("#produce_subtype");
+					// $($dropdown)[0].options.length = 0;
+					// $dropdown.append($("<option />").text('--none--'));
+
+					// $.each(data, function(index, element) {
+					// 	$dropdown.append($("<option />").val(element.id).text(element.produce_sub_type_name));
+					// });
+
+                },
+                error:function(e){}
+            });
+
+       $('#modal-portfolio-view').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+      
+    });
 
 
         var uploaded_files=[]

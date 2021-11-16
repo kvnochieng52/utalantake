@@ -63,14 +63,12 @@ class PortfolioController extends Controller
 
                 $default_type = $file->type;
 
-                $rand = rand(1, 4);
-
                 if (strpos($file->type, 'video') !== false) {
-                    $default_url = 'images/portfolio_place_holders/video_bg/video' . $rand . '.jpg';
+                    $default_url = 'images/portfolio_place_holders/video_bg/video' . rand(1, 4) . '.jpg';
                 }
 
                 if (strpos($file->type, 'audio') !== false) {
-                    $default_url = 'images/portfolio_place_holders/video_bg/video' . $rand . '.jpg';
+                    $default_url = 'images/portfolio_place_holders/video_bg/video' . rand(1, 4) . '.jpg';
                 }
 
                 if (strpos($file->type, 'application') !== false) {
@@ -106,5 +104,15 @@ class PortfolioController extends Controller
 
 
         return back()->with('success', 'Porfolio added successfully');
+    }
+
+
+    public function view_portfolio(Request $request)
+    {
+
+        return [
+            'portfolio_details' => Portfolio::find($request->input('portfolio_id')),
+            'portfolio_files' => PortfolioUpload::where('portfolio_id', $request->input('portfolio_id'))->get(),
+        ];
     }
 }

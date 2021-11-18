@@ -10,6 +10,7 @@ use App\Models\Gender;
 use App\Models\Industry;
 use App\Models\JobEducationLevel;
 use App\Models\JobType;
+use App\Models\Portfolio;
 use App\Models\Town;
 use App\Models\UserDetail;
 use App\Models\UserSelectedIndustry;
@@ -26,9 +27,6 @@ class UserProfileController extends Controller
 {
     public function index()
     {
-
-
-
 
         return view('profile.index')->with([
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
@@ -59,7 +57,8 @@ class UserProfileController extends Controller
                 ->get([
                     'work_experiences.*',
                     'job_types.job_type_name',
-                ])
+                ]),
+            'user_portfolio' => Portfolio::getUserPortfolio(Auth::user()->id),
         ]);
     }
 

@@ -16,10 +16,12 @@ class CreatePortfoliosTable extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->nullable($value = true);
-            $table->string('portfolio_name')->nullable($value = true);
+            $table->text('portfolio_name')->nullable($value = true);
             $table->integer('active')->nullable($value = true);
-            $table->integer('file_type_id')->nullable($value = true);
             $table->text('portfolio_description')->nullable($value = true);
+            $table->text('portfolio_url')->nullable($value = true);
+            $table->text('default_thumb_type')->nullable($value = true);
+            $table->text('default_thumb_url')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

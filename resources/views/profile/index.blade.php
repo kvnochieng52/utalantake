@@ -1,6 +1,6 @@
 @extends('layouts.master_frontend')
 @section('title')
-Register Account
+Profile
 @endsection
 
 @section('content')

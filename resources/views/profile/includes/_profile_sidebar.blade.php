@@ -42,9 +42,12 @@
                 </p>
             </li>
         </ul>
-        <a href="/profile/edit" class="btn btn-block bg-gradient-secondary btn-sm">
-            <i class="fas fa-user-edit"></i> EDIT PROFILE</a>
+        {{-- <a href="/profile/edit" class="btn btn-block bg-gradient-secondary btn-sm">
+            <i class="fas fa-user-edit"></i> EDIT PROFILE</a> --}}
+
         <ul class="list-group list-group-unbordered mb-3">
+
+
             <li class="list-group-item">
                 <a href="/profile" style="color:#5f5f5f"><b> <i class="far fa-user-circle"></i> View Profile</b>
                 </a>
@@ -52,13 +55,14 @@
                 <a class="float-right"></a>
             </li>
             <li class="list-group-item">
-                <a href="" style="color:#5f5f5f"><b> <i class="far fa-clipboard"></i> Tasks/Jobs</b>
+                <a href="/job" style="color:#5f5f5f"><b> <i class="far fa-clipboard"></i> Tasks/Jobs</b>
                 </a>
-                <a class="float-right">Post New</a>
+                <a href="/job/post" class="float-right btn btn-outline-secondary"><i class="fas fa-plus"></i> Post
+                    New</a>
             </li>
             {{-- <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
-                            </li> --}}
+                <b>Friends</b> <a class="float-right">13,287</a>
+            </li> --}}
         </ul>
 
         {{-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> --}}
@@ -86,13 +90,13 @@
         <h3 class="card-title">Recently Added Opportunities</h3>
 
         {{-- <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div> --}}
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div> --}}
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">

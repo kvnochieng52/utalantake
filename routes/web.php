@@ -70,4 +70,11 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
         Route::any('/add_portfolio', 'PortfolioController@add_portfolio');
         Route::get('/view_portfolio', 'PortfolioController@view_portfolio');
     });
+
+
+    Route::prefix('job')->group(function () {
+        Route::get('/post', 'JobController@post');
+        Route::post('/save', 'JobController@save');
+        Route::post('/upload_attachments', 'JobController@upload_attachments');
+    });
 });

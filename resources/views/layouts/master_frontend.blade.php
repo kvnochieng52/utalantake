@@ -70,8 +70,9 @@
     <!-- overlayScrollbars -->
     <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <script src="/dist/js/adminlte.js"></script>
-    {{-- <!-- AdminLTE App -->
-   
+    {{--
+    <!-- AdminLTE App -->
+
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="dist/js/demo.js"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

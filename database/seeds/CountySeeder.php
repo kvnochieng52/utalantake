@@ -241,12 +241,12 @@ class CountySeeder extends Seeder
                 'updated_by' => 1,
             ],
             [
-                'county_name' => 'Kisumu',
+                'county_name' => 'Homabay',
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
-                'county_name' => 'Homabay',
+                'county_name' => 'Migori',
                 'created_by' => 1,
                 'updated_by' => 1,
             ]

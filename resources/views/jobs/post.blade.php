@@ -110,7 +110,9 @@ Profile
     }
 
     .mode_field,
-    .curreny_field {
+    .curreny_field,
+    .post_as_div,
+    .notification_email_div {
         display: none;
     }
 </style>
@@ -134,6 +136,15 @@ Profile
             var selected_option=$(this).val();
             $('.job_view').hide();
             $('.job_view'+selected_option).show();
+            
+        });
+
+        $('.post_as').change(function(){
+            var selected_option=$(this).val();
+            $('.post_as_div').hide();
+            $('.'+selected_option+'_div').show();
+            $('.notification_email_div').show();
+            
             
         });
 

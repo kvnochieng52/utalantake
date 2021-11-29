@@ -20,7 +20,7 @@ class CreateJobsTable extends Migration
             $table->text('job_summary')->nullable($value = true);
             $table->text('job_description')->nullable($value = true);
             $table->bigInteger('job_type')->nullable($value = true);
-            $table->bigInteger('job_qualification_id')->nullable($value = true);
+            //$table->bigInteger('job_qualification_id')->nullable($value = true);
             $table->integer('salary_range_id')->nullable($value = true);
             $table->decimal('salary_amount')->nullable($value = true);
             $table->bigInteger('currency_id')->nullable($value = true);
@@ -29,10 +29,10 @@ class CreateJobsTable extends Migration
             $table->bigInteger('job_county_id')->nullable($value = true);
             $table->bigInteger('job_town_id')->nullable($value = true);
             $table->text('job_address')->nullable($value = true);
-            $table->text('company_name')->nullable($value = true);
+            $table->text('display_name')->nullable($value = true);
             $table->text('company_logo')->nullable($value = true);
             $table->string('posting_as')->nullable($value = true);
-            $table->date('start_date')->nullable($value = true);
+            // $table->date('start_date')->nullable($value = true);
             $table->date('deadline')->nullable($value = true);
             $table->integer('job_status')->nullable($value = true);
             $table->integer('created_by');

@@ -73,7 +73,14 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 
 
     Route::prefix('job')->group(function () {
+        Route::get('/start', 'JobController@start');
+        Route::get('/start_process', 'JobController@start_process');
+        Route::get('/post_task', 'JobController@post_task');
         Route::get('/post', 'JobController@post');
+
+
+
+        Route::post('/post_task_process', 'JobController@post_task_process');
         Route::post('/save', 'JobController@save');
         Route::post('/upload_attachments', 'JobController@upload_attachments');
     });

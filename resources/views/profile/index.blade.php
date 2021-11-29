@@ -934,7 +934,7 @@ Profile
 
         var uploaded_files=[]
 
-          $('.date_selector').datepicker({
+        $('.date_selector').datepicker({
             autoclose: true,
             changeMonth: true,
             changeYear: true,

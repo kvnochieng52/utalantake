@@ -13,6 +13,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
@@ -44,15 +46,6 @@
                         {{$industry}}
                     </option>
                     @endforeach
-
-
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
                 </select>
             </div>
         </div>
@@ -181,11 +174,11 @@
 
     <div class="col-md-7">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="salary_range_div range_type" style="display: none">
                     <div class="form-group">
                         {{Form::label('salary_range', 'Select Range',['class'=>'control-label'])}}
-                        {{ Form::select('salary_range', [],null, ['class' => 'form-control
+                        {{ Form::select('salary_range', $salary_ranges,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('salary_range')
                         <span class="error_submission" role="alert">
@@ -209,11 +202,11 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="curreny_field">
                     <div class="form-group">
-                        {{Form::label('payment_curency', 'which Currency?',['class'=>'control-label'])}}
-                        {{ Form::select('payment_curency', [],null, ['class' => 'form-control
+                        {{Form::label('payment_curency', 'Currency?',['class'=>'control-label'])}}
+                        {{ Form::select('payment_curency', $currencies,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('payment_curency')
                         <span class="error_submission" role="alert">
@@ -227,7 +220,7 @@
                 <div class="mode_field">
                     <div class="form-group">
                         {{Form::label('payment_mode', 'Payment Plan?',['class'=>'control-label'])}}
-                        {{ Form::select('payment_mode', [],null, ['class' => 'form-control
+                        {{ Form::select('payment_mode', $payment_modes,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('payment_mode')
                         <span class="error_submission" role="alert">

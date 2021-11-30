@@ -145,7 +145,7 @@ class UserProfileController extends Controller
         $user_details->last_name = $request->input('last_name');
         $user_details->gender_id = $request->input('gender');
         $user_details->primary_phone = $request->input('telephone');
-        $user_details->date_of_birth  = Carbon::parse($request->input('date_of_birth'))->format("Y-m-d");;
+        $user_details->date_of_birth  = Carbon::parse($request->input('date_of_birth'))->format("Y-m-d");
         $user_details->updated_by = Auth::user()->id;
         $user_details->save();
 

@@ -64,9 +64,9 @@ Profile
                         <div class="job_view job_view1">
                             @include('jobs.post._task')
                         </div>
-                        {{-- <div class="job_view job_view2">
+                        <div class="job_view job_view2">
                             @include('jobs.post._job')
-                        </div> --}}
+                        </div>
 
 
                         <div class="row" style="padding-top: 20px">

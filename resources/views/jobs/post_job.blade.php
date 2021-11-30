@@ -1,6 +1,6 @@
 @extends('layouts.master_frontend')
 @section('title')
-Post a Task
+Post a Job
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@ Post a Task
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Post Task </h5>
+                        <h5 class="card-title">Post Job </h5>
                     </div>
                     <div class="card-body">
                         @include('notices')
@@ -25,15 +25,33 @@ Post a Task
                         Form::open(['action'=>'JobController@post_task_process','method'=>'POST','class'=>'form',
                         'enctype'=>'multipart/form-data'])
                         !!}
-                        <input type="hidden" name="post_type" value="1">
+
+
+                        <input type="hidden" name="post_type" value="2">
+
                         <div class="row">
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{Form::label('title', 'Task Title/Name',['class'=>'control-label'])}}
+                                    {{Form::label('title', 'Job Title',['class'=>'control-label'])}}
                                     {{Form::text('title',null,['class'=>'form-control',
-                                    'placeholder'=>'Enter your task title','required'=>'required'])}}
+                                    'placeholder'=>'Enter your task title'])}}
                                     @error('title')
+                                    <span class="error_submission" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    {{Form::label('job_summary', 'Job summary',['class'=>'control-label'])}}
+                                    {{Form::textarea('job_summary',null,['class'=>'form-control',
+                                    'placeholder'=>'','style'=>'height:90px'])}}
+                                    @error('job_summary')
                                     <span class="error_submission" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,7 +64,8 @@ Post a Task
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{Form::label('description', 'Task Description',['class'=>'control-label'])}}
+                                    {{Form::label('description', 'Job
+                                    Description/Requirements/Responsiblities',['class'=>'control-label'])}}
                                     {{Form::textarea('description',null,['class'=>'form-control description_textbox',
                                     'placeholder'=>'Properly Describe your task, requirements and qualification if
                                     any'])}}
@@ -57,6 +76,65 @@ Post a Task
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{Form::label('job_type', 'Job Type',['class'=>'control-label'])}}
+                                    {{ Form::select('job_type', $job_types,null, ['class' => 'form-control
+                                    select2','style'=>'width:100%','placeholder'=>'--Specify--'])
+                                    }}
+                                    @error('job_type')
+                                    <span class="error_submission" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{Form::label('minimum_requirement', 'Minimum
+                                    Requirements',['class'=>'control-label'])}}
+                                    {{ Form::select('minimum_requirement', $qualifications,null, ['class' =>
+                                    'form-control
+                                    select2','style'=>'width:100%','placeholder'=>'--Specify--'])
+                                    }}
+                                    @error('minimum_requirement')
+                                    <span class="error_submission" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{Form::label('opennings', 'Available Opennings',['class'=>'control-label'])}}
+                                    {{Form::number('opennings',1,['class'=>'form-control',
+                                    'placeholder'=>'Open Positions'])}}
+                                    @error('opennings')
+                                    <span class="error_submission" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{Form::label('deadline', 'Application Deadline',['class'=>'control-label'])}}
+                                    {{Form::text('deadline',null,['class'=>'form-control date_selector',
+                                    'placeholder'=>''])}}
+                                    @error('deadline')
+                                    <span class="error_submission" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="row">
@@ -133,7 +211,7 @@ Post a Task
                                         <div class="form-group">
                                             {{Form::label('country', 'Select Country',['class'=>'control-label'])}}
                                             {{ Form::select('country', $countries,'', ['class' =>
-                                            'form-control select2','required'=>'required','style'=>'width:100%']) }}
+                                            'form-control select2','style'=>'width:100%']) }}
                                             @error('country')
                                             <span class="error_submission" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -146,7 +224,7 @@ Post a Task
                                         <div class="form-group">
                                             {{Form::label('county', 'County',['class'=>'control-label'])}}
                                             {{ Form::select('county', $counties,'', ['class' => 'form-control
-                                            select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required'])
+                                            select2','style'=>'width:100%','placeholder'=>'--Specify--'])
                                             }}
                                             @error('county')
                                             <span class="error_submission" role="alert">
@@ -160,7 +238,7 @@ Post a Task
                                         <div class="form-group">
                                             {{Form::label('town_estate', 'Town/Estate',['class'=>'control-label'])}}
                                             {{ Form::select('town_estate', $towns,null, ['class' => 'form-control
-                                            select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required'])
+                                            select2','style'=>'width:100%','placeholder'=>'--Specify--'])
                                             }}
                                             @error('town_estate')
                                             <span class="error_submission" role="alert">
@@ -222,7 +300,7 @@ Post a Task
                                                 Range',['class'=>'control-label'])}}
                                                 {{ Form::select('salary_range', $salary_ranges,null, ['class' =>
                                                 'form-control
-                                                select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required'])
+                                                select2','style'=>'width:100%','placeholder'=>'--Specify--'])
                                                 }}
                                                 @error('salary_range')
                                                 <span class="error_submission" role="alert">
@@ -254,7 +332,7 @@ Post a Task
                                                 'Currency?',['class'=>'control-label'])}}
                                                 {{ Form::select('payment_curency', $currencies,null, ['class' =>
                                                 'form-control
-                                                select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required'])
+                                                select2','style'=>'width:100%','placeholder'=>'--Specify--'])
                                                 }}
                                                 @error('payment_curency')
                                                 <span class="error_submission" role="alert">
@@ -271,7 +349,7 @@ Post a Task
                                                 Plan?',['class'=>'control-label'])}}
                                                 {{ Form::select('payment_mode', $payment_modes,null, ['class' =>
                                                 'form-control
-                                                select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required'])
+                                                select2','style'=>'width:100%','placeholder'=>'--Specify--'])
                                                 }}
                                                 @error('payment_mode')
                                                 <span class="error_submission" role="alert">

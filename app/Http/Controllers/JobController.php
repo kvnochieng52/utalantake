@@ -27,7 +27,13 @@ class JobController extends Controller
 
     public function index()
     {
-        return view('jobs.index');
+
+        return view('jobs.index')->with([
+            'user_details' => UserDetail::getUserByID(Auth::user()->id),
+            'user_posted_jobs' => Job::getJobsByUserID(Auth::user()->id)->paginate(1),
+
+
+        ]);
     }
 
 

@@ -88,3 +88,8 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
         Route::post('/upload_attachments', 'JobController@upload_attachments');
     });
 });
+
+Route::prefix('search')->group(function () {
+    Route::get('/expert', 'SearchController@expert');
+    Route::get('/expert_process', 'SearchController@expert_process');
+});

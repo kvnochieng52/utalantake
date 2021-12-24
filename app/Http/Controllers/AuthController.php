@@ -30,6 +30,7 @@ class AuthController extends Controller
         $user_details->user_id =  $user->id;
         $user_details->first_name = $request->input('first_name');
         $user_details->last_name = $request->input('last_name');
+        $user_details->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '.', $request->input('first_name') . "." . $request->input('last_name') . "." . $user->id)));
         $user_details->primary_phone = $request->input('telephone');
         $user_details->created_by =  $user->id;
         $user_details->updated_by =  $user->id;

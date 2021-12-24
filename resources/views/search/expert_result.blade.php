@@ -10,7 +10,7 @@ Search Expert
 <div style="background-color:#f5f7f6; padding-top:20px">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Search Expert</h5>
@@ -45,7 +45,7 @@ Search Expert
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
 
                                         <div class="form-group">
                                             {{Form::label('industry', 'Industry
@@ -61,7 +61,7 @@ Search Expert
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             {{Form::label('location', 'Location',['class'=>'control-label'])}}
                                             {{Form::text('location',null,['class'=>'form-control',
@@ -97,6 +97,57 @@ Search Expert
                         {!! Form::close() !!}
 
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Search Results</h5>
+                    </div>
+                    <div class="card-body">
+                        @if(count($experts)==0)
+                        <div class="alert alert-danger">
+                            No Expert Found Matching your Query
+                        </div>
+                        @else
+
+                        @foreach ($experts as $expert)
+                        <div>
+                            <div class="thumbnail" style="border:none; background:white;">
+
+
+                                <div class="row">
+                                    <div class="col-sm-2 col-md-2 col-xs-12 image-container">
+                                        <img src="/{{$expert->profile_photo_thumb}}"
+                                            style="margin-left:-15px; width:100%" />
+                                    </div>
+
+                                    <div class="col-sm-10 col-md-10 col-xs-12">
+
+                                        <h5 style="margin-bottom: 2px"><a href="">{{$expert->first_name}}
+                                                {{$expert->last_name}}</a>
+                                        </h5>
+                                        <p style="margin-bottom: 2px">{{$expert->title}}/{{$expert->town_name}}</p>
+                                        <p style="margin-bottom: 2px">
+                                            {{mb_strimwidth($expert->bio, 0, 150, "...")}}
+                                            <a href="/expert/{{$expert->slug}}"><b>Read More</b></a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="clear: both"></div>
+                            <hr style="margin-top: 2px" />
+                        </div>
+                        @endforeach
+
+
+
+
+
+                        @endif
                     </div>
                 </div>
             </div>

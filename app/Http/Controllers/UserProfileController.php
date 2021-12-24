@@ -189,4 +189,10 @@ class UserProfileController extends Controller
 
         return back()->with('success', 'Details saved successful');
     }
+
+
+    public function show(Request $request)
+    {
+        echo "Ok";
+    }
 }

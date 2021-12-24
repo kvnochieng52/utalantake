@@ -25,6 +25,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('expert/{username}', 'UserProfileController@show');
+
 Route::prefix('auth')->group(function () {
     Route::post('/regsiter_account', 'AuthController@regsiter_account')->name('home');
 });
@@ -91,5 +93,6 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 
 Route::prefix('search')->group(function () {
     Route::get('/expert', 'SearchController@expert');
+    Route::get('/location_autocomplete', 'SearchController@location_autocomplete');
     Route::get('/expert_process', 'SearchController@expert_process');
 });

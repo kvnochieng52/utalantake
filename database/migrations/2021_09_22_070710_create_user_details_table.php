@@ -19,6 +19,7 @@ class CreateUserDetailsTable extends Migration
             $table->text('title')->nullable($value = true);
             $table->string('first_name')->nullable($value = true);
             $table->string('last_name')->nullable($value = true);
+            $table->text('slug')->nullable($value = true);
             $table->string('primary_phone')->nullable($value = true);
             $table->integer('country_id')->nullable($value = true);
             $table->integer('county_id')->nullable($value = true);

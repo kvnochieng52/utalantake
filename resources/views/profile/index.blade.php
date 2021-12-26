@@ -285,8 +285,7 @@ Profile
                         </div>
 
 
-                        <div class="" style="height: 400px; overflow-x: hidden;
-                overflow-y: auto;">
+                        <div class="" style="height: 400px; overflow-x: hidden; overflow-y: auto;">
 
                             <div class="row">
 

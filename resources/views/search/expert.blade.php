@@ -103,6 +103,8 @@ Search Expert
         </div>
     </div>
 </div>
+
+@include('includes._footer')
 @endsection
 
 

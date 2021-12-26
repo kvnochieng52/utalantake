@@ -115,7 +115,7 @@ Search Expert
 
                         @foreach ($experts as $expert)
                         <div>
-                            <div class="thumbnail" style="border:none; background:white;">
+                            <div class="thumbnail" style="border:none;">
 
 
                                 <div class="row">

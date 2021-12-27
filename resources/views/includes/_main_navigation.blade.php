@@ -36,7 +36,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="/{{$user_details->profile_photo !=null ? $user_details->profile_photo : 'images/no-image.png' }}"
                         class="user-image img-circle elevation-2" alt="User Image">
-                    <span class="d-none d-md-inline">Kevin Ochieng <i class="fas fa-caret-down"></i></span>
+                    <span class="d-none d-md-inline">{{$user_details->first_name}} {{$user_details->last_name}} <i
+                            class="fas fa-caret-down"></i></span>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-right" style="left: inherit; right: 0px;">
                     <!-- User image -->

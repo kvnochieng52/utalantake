@@ -1,6 +1,6 @@
 {!!
 Form::open(['action'=>'UserProfileController@update_bio','method'=>'POST','class'=>'form
-candidate_form',
+details_form',
 'enctype'=>'multipart/form-data'])
 !!}
 
@@ -10,7 +10,9 @@ candidate_form',
     <div class="col-md-12">
         <div class="form-group">
             {{Form::label('title', 'Your Title',['class'=>'control-label'])}}
-            {{Form::text('title',$user_details->title,['class'=>'form-control', 'placeholder'=>'Enter your title e.g Plumber, Footballer, Software Developer, Electrician, Mechanic etc'])}}
+            {{Form::text('title',$user_details->title,['class'=>'form-control',
+            'placeholder'=>'Enter your title e.g Plumber, Footballer, Software Developer, Electrician, Mechanic etc',
+            'required'=>'required'])}}
             @error('title')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>
@@ -22,7 +24,10 @@ candidate_form',
     <div class="col-md-12">
         <div class="form-group">
             {{Form::label('bio', 'Bio',['class'=>'control-label'])}}
-            {{Form::textarea('bio',$user_details->bio,['class'=>'form-control', 'placeholder'=>'Tell us something about yourself','style'=>'height:80px'])}}
+            {{Form::textarea('bio',$user_details->bio,['class'=>'form-control',
+            'placeholder'=>'Tell us something about yourself',
+            'required'=>'required',
+            'style'=>'height:80px'])}}
             @error('bio')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>

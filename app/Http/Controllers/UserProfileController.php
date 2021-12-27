@@ -8,6 +8,7 @@ use App\Models\County;
 use App\Models\Education;
 use App\Models\Gender;
 use App\Models\Industry;
+use App\Models\Job;
 use App\Models\JobEducationLevel;
 use App\Models\JobType;
 use App\Models\Portfolio;
@@ -59,6 +60,8 @@ class UserProfileController extends Controller
                     'job_types.job_type_name',
                 ]),
             'user_portfolio' => Portfolio::getUserPortfolio(Auth::user()->id),
+            'jobs_count' => Job::count(),
+            'latest_jobs' => Job::orderBy('id', 'DESC')->limit(5)->get()
         ]);
     }
 

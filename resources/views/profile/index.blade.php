@@ -71,24 +71,16 @@ Profile
                     <div class="card-header p-0 border-bottom-0">
                         <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill"
-                                    href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home"
-                                    aria-selected="true">Basic Details</a>
+                                <a class="nav-link active animate_a" id="" href="#basic_details">Basic Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill"
-                                    href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile"
-                                    aria-selected="false">Skills</a>
+                                <a class="nav-link animate_a" id="" href="#skillsAnchor">Skills</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill"
-                                    href="#custom-tabs-four-messages" role="tab"
-                                    aria-controls="custom-tabs-four-messages" aria-selected="false">Portfolio</a>
+                                <a class="nav-link animate_a" id="" href="#portfolioAnchor">Portfolio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="custom-tabs-four-settings-tab" data-toggle="pill"
-                                    href="#custom-tabs-four-settings" role="tab"
-                                    aria-controls="custom-tabs-four-settings" aria-selected="false">Work Experience &
+                                <a class="nav-link animate_a" id="" href="#experienceAnchor">Work Experience &
                                     Education</a>
                             </li>
                         </ul>
@@ -179,61 +171,8 @@ Profile
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
-                                aria-labelledby="custom-tabs-four-profile-tab">
-                                Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra
-                                purus
-                                ut ligula
-                                tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing
-                                elit.
-                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                Curae;
-                                Maecenas
-                                sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus
-                                ligula
-                                eu lectus.
-                                Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod
-                                pellentesque diam.
-                            </div>
-                            <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel"
-                                aria-labelledby="custom-tabs-four-messages-tab">
-                                Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus
-                                volutpat augue id mi
-                                placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit
-                                sem, ac
-                                tristique
-                                nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit
-                                condimentum, mattis urna
-                                a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam
-                                vulputate,
-                                eros non luctus
-                                efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum.
-                                Nulla
-                                lacinia, ex
-                                vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel
-                                metus.
-                                Curabitur eget
-                                sem eu risus tincidunt eleifend ac ornare magna.
-                            </div>
-                            <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel"
-                                aria-labelledby="custom-tabs-four-settings-tab">
-                                Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis
-                                tempus
-                                turpis ac, ornare
-                                sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate.
-                                Morbi
-                                euismod molestie
-                                tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum
-                                placerat
-                                urna nec
-                                pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc
-                                et
-                                felis ut nisl
-                                commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex
-                                sit
-                                amet facilisis.
-                            </div>
+
+
                         </div>
                     </div>
 
@@ -244,62 +183,68 @@ Profile
 
 
                 </div>
-                <div class="card">
+                <a name="skillsAnchor" id="skillsAnchor">
+                    <div class="card">
 
 
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Industries & Skills </h5>
-
-
-
-                        <br />
-
-                        <p>Let us know what you are talented or passionate about (Click on a skill for more details)</p>
-
-                        <div class="row">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fa fa-briefcase"></i> Industries & Skills </h5>
 
 
 
-                            <div class="col-md-12" style="padding-bottom: 10px">
-                                <a href="#modal_update_industries" data-toggle="modal"
-                                    data-target="#modal_update_industries" data-backdrop="static" data-keyboard="false"
-                                    class="btn bg-gradient-secondary btn-sm" style="float: right">
-                                    <i class="fas fa-edit"></i> Edit Industries</a>
-                                <hr />
-                                <b>
-                                    @foreach($user_selected_industries as $industry)
-                                    <span class="badge badge-info"> {{$industry}}</span>
-                                    @endforeach
+                            <br />
+
+                            <p>Let us know what you are talented or passionate about (Click on a skill for more details)
+                            </p>
+
+                            <div class="row">
 
 
-                                </b>
-                                <hr />
+
+                                <div class="col-md-12" style="padding-bottom: 10px">
+                                    <a href="#modal_update_industries" data-toggle="modal"
+                                        data-target="#modal_update_industries" data-backdrop="static"
+                                        data-keyboard="false" class="btn bg-gradient-secondary btn-sm"
+                                        style="float: right">
+                                        <i class="fas fa-edit"></i> Edit Industries</a>
+                                    <hr />
+                                    <b>
+                                        @foreach($user_selected_industries as $industry)
+                                        <span class="badge badge-info"> {{$industry}}</span>
+                                        @endforeach
+
+
+                                    </b>
+                                    <hr />
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-12">
-                                <a href="#modal_add_skill" data-toggle="modal" data-target="#modal_add_skill"
-                                    data-backdrop="static" data-keyboard="false"
-                                    class="btn bg-gradient-secondary btn-sm" style="float: right">
-                                    <i class="fas fa-plus"></i> Add New Skill</a>
+                                <div class="col-md-12">
+                                    <a href="#modal_add_skill" data-toggle="modal" data-target="#modal_add_skill"
+                                        data-backdrop="static" data-keyboard="false"
+                                        class="btn bg-gradient-secondary btn-sm" style="float: right">
+                                        <i class="fas fa-plus"></i> Add New Skill</a>
+                                </div>
+
+
+                                @foreach($user_selected_skills as $skill)
+                                <div class="col-md-6">
+                                    <a href="" class="" data-toggle="modal" data-target="#skill">
+                                        <div class="feeds_widget">
+                                            <h6 class="title"> {{$skill->selected_skill_name}}<small
+                                                    class="float-right text-muted">
+                                                    Read More
+
+                                                </small>
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </div>
+                                @endforeach
+
+
                             </div>
-
-
-                            @foreach($user_selected_skills as $skill)
-                            <div class="col-md-6">
-                                <a href="" class="" data-toggle="modal" data-target="#skill">
-                                    <div class="feeds_widget">
-                                        <h6 class="title"> {{$skill->selected_skill_name}}<small
-                                                class="float-right text-muted">
-                                                Read More
-
-                                            </small>
-                                        </h6>
-                                    </div>
-                                </a>
-                            </div>
-                            @endforeach
 
 
                         </div>
@@ -307,69 +252,69 @@ Profile
 
                     </div>
 
-
-                </div>
-
-
-                <div class="card">
+                    <a name="portfolioAnchor" id="portfolioAnchor">
+                        <div class="card">
 
 
-                    <div class="card-body">
-                        <div style="width: 100%; padding-bottom:20px">
-                            <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
-                            <a href="#modal_add_portfolio" data-toggle="modal" data-target="#modal_add_portfolio"
-                                data-backdrop="static" data-keyboard="false"
-                                class="btn bg-gradient-secondary btn-sm float-right">
-                                <i class="fas fa-plus"></i> Add Portfolio
-                            </a>
+                            <div class="card-body">
+                                <div style="width: 100%; padding-bottom:20px">
+                                    <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
+                                    <a href="#modal_add_portfolio" data-toggle="modal"
+                                        data-target="#modal_add_portfolio" data-backdrop="static" data-keyboard="false"
+                                        class="btn bg-gradient-secondary btn-sm float-right">
+                                        <i class="fas fa-plus"></i> Add Portfolio
+                                    </a>
 
-                            <br /><br />
+                                    <br /><br />
 
-                        </div>
+                                </div>
 
 
-                        <div class="" style="height: 400px; overflow-x: hidden;
-                overflow-y: auto;">
+                                <div class="" style="height: 400px; overflow-x: hidden; overflow-y: auto;">
 
-                            <div class="row">
+                                    <div class="row">
 
-                                @foreach ($user_portfolio as $portfolio)
+                                        @foreach ($user_portfolio as $portfolio)
 
-                                {{-- <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
 
-                                    <div style="padding-bottom: 20px">
+                                            <div style="padding-bottom: 20px">
 
-                                        <div class="media">
-                                            <a href="" class="" data-toggle="modal" data-target=".video">
-                                                <img class="mr-3" src="/{{$portfolio->default_thumb_url}}"
-                                                    alt="Generic placeholder image" style="width:100px" class="rounded">
-                                            </a>
-                                            <div class="media-body">
+                                                <div class="media">
+                                                    <a href="" class="" data-toggle="modal" data-target=".video">
+                                                        <img class="mr-3" src="/{{$portfolio->default_thumb_url}}"
+                                                            alt="Generic placeholder image" style="width:100px"
+                                                            class="rounded">
+                                                    </a>
+                                                    <div class="media-body">
 
-                                                <h6><a href="" class="" data-toggle="modal"
-                                                        data-target=".video">{{$portfolio->portfolio_name}} </a></h6>
-                                                <p class="mt-0" style="font-size:16px">{{count($portfolio->files)}}
-                                                    files
-                                                </p>
+                                                        <h6><a href="" class="" data-toggle="modal"
+                                                                data-target=".video">{{$portfolio->portfolio_name}} </a>
+                                                        </h6>
+                                                        <p class="mt-0" style="font-size:16px">
+                                                            {{count($portfolio->files)}}
+                                                            files
+                                                        </p>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                        </div>
 
-                                    </div>
-
-                                </div> --}}
+                                        </div> --}}
 
 
 
-                                <div class="col-md-4">
-                                    {{-- <a href="#modal-xl" data-toggle="modal" data-target="#modal-xl"
-                                        data-portfolio_id="{{$portfolio->id}}" id=""> --}}
+                                        <div class="col-md-4">
+                                            {{-- <a href="#modal-xl" data-toggle="modal" data-target="#modal-xl"
+                                                data-portfolio_id="{{$portfolio->id}}" id=""> --}}
 
-                                        <a href="" class="portfolio_view" data-portfolio_id="{{$portfolio->id}}">
-                                            <div style="margin-bottom: 20px;">
-                                                <div class="thumb_container"
-                                                    style="height:170px; overflow:hidden; width:100%">
-                                                    <img src="/{{$portfolio->default_thumb_url}}"
-                                                        alt="{{$portfolio->portfolio_name}}" style="max-width:100%; 
+                                                <a href="" class="portfolio_view"
+                                                    data-portfolio_id="{{$portfolio->id}}">
+                                                    <div style="margin-bottom: 20px;">
+                                                        <div class="thumb_container"
+                                                            style="height:170px; overflow:hidden; width:100%">
+                                                            <img src="/{{$portfolio->default_thumb_url}}"
+                                                                alt="{{$portfolio->portfolio_name}}" style="max-width:100%; 
                                              @if (strpos($portfolio->default_thumb_type, 'image') !== false)
                     
                                             @else
@@ -377,10 +322,10 @@ Profile
                                                 -webkit-filter: blur(4px);
                                             @endif
                                             ">
-                                                    <div class="content">
-                                                        <div class="div_text">
+                                                            <div class="content">
+                                                                <div class="div_text">
 
-                                                            <?php 
+                                                                    <?php 
                                                     if (strpos($portfolio->default_thumb_type, 'video') !== false) {
                                                         $icon = 'play';
                                                     }elseif (strpos($portfolio->default_thumb_type, 'audio') !== false) {
@@ -393,118 +338,132 @@ Profile
 
                                                  ?>
 
-                                                            <p style="margin-bottom: 0px; font-size:18px"><i
-                                                                    class="fas fa-{{$icon}}"></i></p>
-                                                            <p style="margin-bottom: 0px; margin-bottom:0px">
-                                                                {{$portfolio->portfolio_name}}</p>
-                                                            <p style="font-size: 12px">({{count($portfolio->files)}} {{
-                                                                count($portfolio->files) > 1 ? "files" : "file"}})</p>
+                                                                    <p style="margin-bottom: 0px; font-size:18px"><i
+                                                                            class="fas fa-{{$icon}}"></i></p>
+                                                                    <p style="margin-bottom: 0px; margin-bottom:0px">
+                                                                        {{$portfolio->portfolio_name}}</p>
+                                                                    <p style="font-size: 12px">
+                                                                        ({{count($portfolio->files)}}
+                                                                        {{
+                                                                        count($portfolio->files) > 1 ? "files" :
+                                                                        "file"}})
+                                                                    </p>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
+                                                    </div>
+                                                </a>
+                                        </div>
+                                        {{-- <div class="col-md-4">
+
+                                            <img src="images/user_profile_bgs/back4.jpg" style="width: 100%">
+                                            {{$portfolio->portfolio_name}}
+                                        </div> --}}
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <a name="experienceAnchor" id="experienceAnchor">
+                            <div class="card">
+
+
+                                <div class="card-body">
+
+                                    <h5 class="card-title"><i class="fa fa-briefcase"></i> Education & Work </h5>
+                                    <br /><br />
+
+                                    <div class="col-md-12">
+                                        <div class="timeline">
+                                            <div class="time-label">
+                                                <span class="bg-grey">Education</span>
+                                                <a href="#modal_add_education" data-toggle="modal"
+                                                    data-target="#modal_add_education" data-backdrop="static"
+                                                    data-keyboard="false"
+                                                    class="btn bg-gradient-secondary btn-sm float-right">
+                                                    <i class="fas fa-plus"></i> Add Education
+                                                </a>
+                                            </div>
+
+                                            @foreach($user_educations as $education)
+                                            <div>
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <div class="timeline-item">
+
+                                                    <div class="timeline-body">
+                                                        <p>{{\Carbon\Carbon::parse($education->start_date)->format('M
+                                                            Y')}}
+                                                            - {{
+                                                            \Carbon\Carbon::parse($education->end_date)->format('M Y')}}
+                                                        </p>
+
+                                                        <h5>{{$education->institute_name}}</h5>
+                                                        <a href="">({{$education->education_level_name}})
+                                                            {{$education->course_name}} </a>
+                                                        <p>{{$education->description}}</p>
 
                                                     </div>
+
                                                 </div>
                                             </div>
-                                        </a>
-                                </div>
-                                {{-- <div class="col-md-4">
 
-                                    <img src="images/user_profile_bgs/back4.jpg" style="width: 100%">
-                                    {{$portfolio->portfolio_name}}
-                                </div> --}}
-                                @endforeach
-                            </div>
-                        </div>
+                                            @endforeach
 
-                    </div>
-                </div>
-
-                <div class="card">
-
-
-                    <div class="card-body">
-
-                        <h5 class="card-title"><i class="fa fa-briefcase"></i> Education & Work </h5><br /><br />
-
-                        <div class="col-md-12">
-                            <div class="timeline">
-                                <div class="time-label">
-                                    <span class="bg-grey">Education</span>
-                                    <a href="#modal_add_education" data-toggle="modal"
-                                        data-target="#modal_add_education" data-backdrop="static" data-keyboard="false"
-                                        class="btn bg-gradient-secondary btn-sm float-right">
-                                        <i class="fas fa-plus"></i> Add Education
-                                    </a>
-                                </div>
-
-                                @foreach($user_educations as $education)
-                                <div>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <div class="timeline-item">
-
-                                        <div class="timeline-body">
-                                            <p>{{\Carbon\Carbon::parse($education->start_date)->format('M Y')}} - {{
-                                                \Carbon\Carbon::parse($education->end_date)->format('M Y')}} </p>
-
-                                            <h5>{{$education->institute_name}}</h5>
-                                            <a href="">({{$education->education_level_name}})
-                                                {{$education->course_name}} </a>
-                                            <p>{{$education->description}}</p>
 
                                         </div>
-
                                     </div>
-                                </div>
-
-                                @endforeach
 
 
-                            </div>
-                        </div>
+                                    <div class="col-md-12">
+                                        <div class="timeline">
+
+                                            <div class="time-label">
+                                                <span class="bg-grey">Work Experience</span>
+                                                <a href="#modal_add_experience" data-toggle="modal"
+                                                    data-target="#modal_add_experience" data-backdrop="static"
+                                                    data-keyboard="false"
+                                                    class="btn bg-gradient-secondary btn-sm float-right">
+                                                    <i class="fas fa-plus"></i> Add Experience
+                                                </a>
+                                            </div>
+
+                                            @foreach($user_work_experiences as $experience)
+
+                                            <div>
+                                                <i class="fas fa-briefcase"></i>
+                                                <div class="timeline-item">
+                                                    <div class="timeline-body">
+                                                        <p>{{\Carbon\Carbon::parse($experience->start_date)->format('M
+                                                            Y')}}
+                                                            -
+                                                            {{ $experience->current==1 ? "Current":
+                                                            \Carbon\Carbon::parse($experience->end_date)->format('M
+                                                            Y')}}
+                                                        </p>
+
+                                                        <h5>{{$experience->company_name}}</h5>
+                                                        <a href="">{{$experience->title}} </a>
+                                                        <p>{{$experience->role_description}}</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            @endforeach
 
 
-                        <div class="col-md-12">
-                            <div class="timeline">
 
-                                <div class="time-label">
-                                    <span class="bg-grey">Work Experience</span>
-                                    <a href="#modal_add_experience" data-toggle="modal"
-                                        data-target="#modal_add_experience" data-backdrop="static" data-keyboard="false"
-                                        class="btn bg-gradient-secondary btn-sm float-right">
-                                        <i class="fas fa-plus"></i> Add Experience
-                                    </a>
-                                </div>
-
-                                @foreach($user_work_experiences as $experience)
-
-                                <div>
-                                    <i class="fas fa-briefcase"></i>
-                                    <div class="timeline-item">
-                                        <div class="timeline-body">
-                                            <p>{{\Carbon\Carbon::parse($experience->start_date)->format('M Y')}} -
-                                                {{ $experience->current==1 ? "Current":
-                                                \Carbon\Carbon::parse($experience->end_date)->format('M Y')}}
-                                            </p>
-
-                                            <h5>{{$experience->company_name}}</h5>
-                                            <a href="">{{$experience->title}} </a>
-                                            <p>{{$experience->role_description}}</p>
 
                                         </div>
-
                                     </div>
+
+
                                 </div>
-
-                                @endforeach
-
-
-
-
                             </div>
-                        </div>
-
-
-                    </div>
-                </div>
 
 
             </div>
@@ -579,6 +538,8 @@ Profile
 <link href="/plugins/select2/css/select2.min.css" rel="stylesheet">
 <link href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet">
 <link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet">
+<link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
 
 <style>
     .thumb_container {
@@ -787,6 +748,7 @@ Profile
 <script src="/dist/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="/plugins/select2/js/select2.full.min.js"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script src="https://oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 {{-- <script src="/dist/css/jquery-ui.min.js"></script> --}}
 
 
@@ -796,6 +758,24 @@ Profile
     $(function () {
 
 
+        $('.animate_a').click(function(){
+            $('html, body').animate({
+                scrollTop: $( $(this).attr('href') ).offset().top
+            }, 500);
+            return false;
+        });
+
+    $('.details_form')
+        .bootstrapValidator({
+            // Only disabled elements are excluded
+            // The invisible elements belonging to inactive tabs must be validated
+            excluded: [':disabled'],
+            feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+            },
+        })
 
 
     $('.portfolio_view').click(function(e){
@@ -934,7 +914,7 @@ Profile
 
         var uploaded_files=[]
 
-          $('.date_selector').datepicker({
+        $('.date_selector').datepicker({
             autoclose: true,
             changeMonth: true,
             changeYear: true,

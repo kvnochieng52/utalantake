@@ -23,7 +23,7 @@
         </p>
 
 
-        <ul class="list-unstyled list-referrals">
+        {{-- <ul class="list-unstyled list-referrals">
             <li>
                 <p style="margin-bottom:5px"><span class="value"><b>25%</b></span><span
                         class="text-muted float-right">Complete | <a href="" data-toggle="modal"
@@ -41,7 +41,7 @@
                     </b>
                 </p>
             </li>
-        </ul>
+        </ul> --}}
         {{-- <a href="/profile/edit" class="btn btn-block bg-gradient-secondary btn-sm">
             <i class="fas fa-user-edit"></i> EDIT PROFILE</a> --}}
 
@@ -75,7 +75,7 @@
 
 <div class="small-box bg-warning">
     <div class="inner">
-        <h3>44</h3>
+        <h3>{{$jobs_count}}</h3>
 
         <p>Opportunties for you</p>
     </div>
@@ -101,60 +101,23 @@
     <!-- /.card-header -->
     <div class="card-body p-0">
         <ul class="products-list product-list-in-card pl-2 pr-2">
+
+            @foreach ($latest_jobs as $job)
             <li class="item">
                 <div class="product-img">
                     <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
                 </div>
                 <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Software Developer
-                        <span class="badge badge-warning float-right">open</span></a>
+                    <a href="javascript:void(0)" class="product-title">{{$job->job_title}}
+                        <span class="badge badge-warning float-right">New</span></a>
                     <span class="product-description">
-                        By: Safaricom
+                        By: {{$job->display_name}}
                     </span>
                 </div>
             </li>
+            @endforeach
 
-            <li class="item">
-                <div class="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                </div>
-                <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Plumbing Job
-                        <span class="badge badge-danger float-right">Closed</span></a>
-                    <span class="product-description">
-                        By: Roy Willis
-                    </span>
-                </div>
-            </li>
 
-            <li class="item">
-                <div class="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                </div>
-                <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Footballer Required
-                        <span class="badge badge-warning float-right">open</span></a>
-                    <span class="product-description">
-                        By: Safaricom
-                    </span>
-                </div>
-            </li>
-
-            <li class="item">
-                <div class="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                </div>
-                <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">TV Set Electrician
-                        <span class="badge badge-warning float-right">open</span></a>
-                    <span class="product-description">
-                        By: Pius Malala
-                    </span>
-                </div>
-            </li>
-            <!-- /.item -->
-
-            <!-- /.item -->
 
         </ul>
     </div>

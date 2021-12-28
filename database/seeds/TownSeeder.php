@@ -2,13 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-class TownSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+class TownSeeder extends Seeder{
+
     public function run()
     {
         DB::table('towns')->insert([

@@ -16,6 +16,7 @@ class CreatePaymentModesTable extends Migration
         Schema::create('payment_modes', function (Blueprint $table) {
             $table->id();
             $table->text('payment_mode_name')->nullable($value = true);
+            $table->integer('active')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();

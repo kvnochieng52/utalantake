@@ -25,6 +25,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('expert/{slug}', 'ExpertController@show');
+
 Route::prefix('auth')->group(function () {
     Route::post('/regsiter_account', 'AuthController@regsiter_account')->name('home');
 });
@@ -73,8 +75,24 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 
 
     Route::prefix('job')->group(function () {
+        Route::get('/', 'JobController@index');
+        Route::get('/start', 'JobController@start');
+        Route::get('/start_process', 'JobController@start_process');
+        Route::get('/post_task', 'JobController@post_task');
+        Route::get('/post_job', 'JobController@post_job');
         Route::get('/post', 'JobController@post');
+
+
+
+        Route::post('/post_task_process', 'JobController@post_task_process');
+
         Route::post('/save', 'JobController@save');
         Route::post('/upload_attachments', 'JobController@upload_attachments');
     });
+});
+
+Route::prefix('search')->group(function () {
+    Route::get('/expert', 'SearchController@expert');
+    Route::get('/location_autocomplete', 'SearchController@location_autocomplete');
+    Route::get('/expert_process', 'SearchController@expert_process');
 });

@@ -12,3 +12,18 @@
 }
 
 .error_submission{ color: red; font-size: 12px;}
+
+
+.has-error {
+    color: red
+}
+
+.has-error .form-control {
+    border-color: red 
+}
+
+.has-success .form-control {
+    border-color: green
+}
+
+

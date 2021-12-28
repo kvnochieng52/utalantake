@@ -1,7 +1,7 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-        <a href="../../index3.html" class="navbar-brand">
-            <img src="/images/logo.png" alt="AdminLTE Logo" class="brand-image">
+        <a href="/" class="navbar-brand">
+            <img src="/images/logo.png" alt="Utalanta Logo" class="brand-image">
 
         </a>
 
@@ -14,11 +14,11 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav main_menu">
                 <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Find Experts</a>
+                    <a href="/search/expert" class="nav-link">Find Experts</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Search Tasks/Jobs</a>
+                    <a href="#" class="nav-link">Search Tasks/Jobs</a>
                 </li>
 
             </ul>
@@ -36,7 +36,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="/{{$user_details->profile_photo !=null ? $user_details->profile_photo : 'images/no-image.png' }}"
                         class="user-image img-circle elevation-2" alt="User Image">
-                    <span class="d-none d-md-inline">Kevin Ochieng <i class="fas fa-caret-down"></i></span>
+                    <span class="d-none d-md-inline">{{$user_details->first_name}} {{$user_details->last_name}} <i
+                            class="fas fa-caret-down"></i></span>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-right" style="left: inherit; right: 0px;">
                     <!-- User image -->

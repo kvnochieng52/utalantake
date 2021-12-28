@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurrenciesTable extends Migration
+class CreateJobPostTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateCurrenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('currencies', function (Blueprint $table) {
+        Schema::create('job_post_types', function (Blueprint $table) {
             $table->id();
-            $table->text('currency_name')->nullable($value = true);
-            $table->integer('active')->nullable($value = true);
-            $table->integer('created_by');
-            $table->integer('updated_by');
+            $table->string('job_post_type_name')->nullable($value = true);
+            $table->integer('visible')->nullable($value = true);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateCurrenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('currencies');
+        Schema::dropIfExists('job_post_types');
     }
 }

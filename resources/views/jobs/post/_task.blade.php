@@ -13,6 +13,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
@@ -36,15 +38,14 @@
                 task</p>
 
             <div class="select2-blue">
-                <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                    data-dropdown-css-class="select2-blue" style="width: 100%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                <select class="select2" multiple="multiple" data-placeholder="Select Industries"
+                    data-dropdown-css-class="select2-blue" style="width: 100%;" autocomplete="off">
+
+                    @foreach ($industries as $key=>$industry)
+                    <option value="{{$key}}">
+                        {{$industry}}
+                    </option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -104,7 +105,7 @@
                 </div>
             </div> --}}
 
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     {{Form::label('county', 'County',['class'=>'control-label'])}}
                     {{ Form::select('county', $counties,'', ['class' => 'form-control
@@ -117,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     {{Form::label('town_estate', 'Town/Estate',['class'=>'control-label'])}}
                     {{ Form::select('town_estate', $towns,null, ['class' => 'form-control
@@ -136,8 +137,8 @@
 
         <div class="form-group">
             {{Form::label('address', 'Phyiscal Address',['class'=>'control-label'])}}
-            {{Form::textarea('address',$user_details->address,['class'=>'form-control', 'placeholder'=>'Specify your
-            physical address','style'=>'height:80px'])}}
+            {{Form::textarea('address',$user_details->address,['class'=>'form-control',
+            'placeholder'=>'Specify your physical address','style'=>'height:60px'])}}
             @error('address')
             <span class="error_submission" role="alert">
                 <strong>{{ $message }}</strong>
@@ -154,11 +155,11 @@
         <p>Specify the Payment Range (optional)</p>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
         <div class="icheck-primary d-inline">
             <input type="radio" id="range" name="payment_type" value="range_type" class="payment_type">
             <label for="range">
-                Select from Range
+                Select Range
             </label>
         </div>
 
@@ -171,13 +172,13 @@
 
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="salary_range_div range_type" style="display: none">
                     <div class="form-group">
                         {{Form::label('salary_range', 'Select Range',['class'=>'control-label'])}}
-                        {{ Form::select('salary_range', [],null, ['class' => 'form-control
+                        {{ Form::select('salary_range', $salary_ranges,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('salary_range')
                         <span class="error_submission" role="alert">
@@ -201,11 +202,11 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="curreny_field">
                     <div class="form-group">
-                        {{Form::label('payment_curency', 'which Currency?',['class'=>'control-label'])}}
-                        {{ Form::select('payment_curency', [],null, ['class' => 'form-control
+                        {{Form::label('payment_curency', 'Currency?',['class'=>'control-label'])}}
+                        {{ Form::select('payment_curency', $currencies,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('payment_curency')
                         <span class="error_submission" role="alert">
@@ -219,7 +220,7 @@
                 <div class="mode_field">
                     <div class="form-group">
                         {{Form::label('payment_mode', 'Payment Plan?',['class'=>'control-label'])}}
-                        {{ Form::select('payment_mode', [],null, ['class' => 'form-control
+                        {{ Form::select('payment_mode', $payment_modes,null, ['class' => 'form-control
                         select2','style'=>'width:100%','placeholder'=>'--Specify--','required'=>'required']) }}
                         @error('payment_mode')
                         <span class="error_submission" role="alert">
@@ -234,4 +235,108 @@
 
 
 
+</div>
+
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-12">
+        <p>Post task as? </p>
+    </div>
+
+    <div class="col-md-5">
+        <div class="icheck-primary d-inline">
+            <input type="radio" id="individual" name="post_as" value="individual" class="post_as">
+            <label for="individual">
+                Individual
+            </label>
+        </div>
+
+        <div class="icheck-primary d-inline" style="margin-left:20px">
+            <input type="radio" id="business" name="post_as" value="business" class="post_as">
+            <label for="business">
+                Business/organization
+            </label>
+        </div>
+
+    </div>
+
+    <div class="col-md-7">
+        <div class="post_as_div individual_div">
+            <div class="form-group">
+                {{Form::label('display_name', 'Display Name (Name to be displayed)',['class'=>'control-label'])}}
+                {{Form::text('display_name',
+                $user_details->first_name." ".$user_details->last_name,
+                ['class'=>'form-control','placeholder'=>'the Name to be displayed']
+                )}}
+                @error('display_name')
+                <span class="error_submission" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="post_as_div business_div">
+            <div class="row">
+
+                <div class="col-md-7">
+                    <div class="form-group">
+                        {{Form::label('business_name', 'Buisness/Organization Name',['class'=>'control-label'])}}
+                        {{Form::text('business_name',null,['class'=>'form-control',
+                        'placeholder'=>'Enter the Business or Org Name'])}}
+                        @error('business_name')
+                        <span class="error_submission" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <div style="width: 100%">
+                            {{Form::label('business_logo', 'Logo',['class'=>'control-label'])}}
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" name="business_logo" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose
+                                Logo</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="notification_email_div">
+                    <div class="form-group">
+                        {{Form::label('notification_email', 'Notifications Email (Email to send applications
+                        notifications)',['class'=>'control-label'])}}
+                        {{Form::email('notification_email',$user_details->email,['class'=>'form-control',
+                        'placeholder'=>'Enter the Business or Org Name'])}}
+                        @error('notification_email')
+                        <span class="error_submission" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding-top: 20px">
+
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-block bg-gradient-secondary">
+            <b>SUBMIT</b></button>
+    </div>
 </div>

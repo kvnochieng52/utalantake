@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurrenciesTable extends Migration
+class CreateJobAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateCurrenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('currencies', function (Blueprint $table) {
+        Schema::create('job_attachments', function (Blueprint $table) {
             $table->id();
-            $table->text('currency_name')->nullable($value = true);
-            $table->integer('active')->nullable($value = true);
+            $table->bigInteger('job_id')->nullable($value = true);
+            $table->text('attachment_type')->nullable($value = true);
+            $table->text('job_attachments_upload')->nullable($value = true);
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
@@ -30,6 +31,6 @@ class CreateCurrenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('currencies');
+        Schema::dropIfExists('job_attachments');
     }
 }

@@ -69,7 +69,13 @@ Profile
                         </div>
 
 
+                        <div class="row" style="padding-top: 20px">
 
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-block bg-gradient-secondary">
+                                    <b>SUBMIT</b></button>
+                            </div>
+                        </div>
 
                         {!! Form::close() !!}
 
@@ -89,6 +95,7 @@ Profile
 <link href="/dist/css/jquery-ui.min.css" rel="stylesheet">
 <link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet">
 <link href="/plugins/select2/css/select2.min.css" rel="stylesheet">
+<link href="/dist/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 <style>
     .job_view {
         display: none
@@ -110,7 +117,9 @@ Profile
     }
 
     .mode_field,
-    .curreny_field {
+    .curreny_field,
+    .post_as_div,
+    .notification_email_div {
         display: none;
     }
 </style>
@@ -123,17 +132,28 @@ Profile
 <script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script src="/plugins/select2/js/select2.full.min.js"></script>
+<script src="/dist/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 
 
 <script>
     Dropzone.autoDiscover = false;
     $(document).ready(function(){
-
-
+        bsCustomFileInput.init();
         $('.post_type').change(function(){
             var selected_option=$(this).val();
             $('.job_view').hide();
             $('.job_view'+selected_option).show();
+            
+        });
+
+        $('.post_as').change(function(){
+            var selected_option=$(this).val();
+            $('.post_as_div').hide();
+            $('.'+selected_option+'_div').show();
+            $('.notification_email_div').show();
+            
             
         });
 
@@ -147,6 +167,20 @@ Profile
         });
 
         $('.description_textbox').wysihtml5({
+            toolbar: {
+                "font-styles": false,
+                "emphasis": true, 
+                "lists": true, 
+                "html": false, 
+                "link": false, 
+                "image": false,
+                "color": false, 
+                "blockquote": false, 
+            }
+        })
+
+
+         $('.job_description_textbox').wysihtml5({
             toolbar: {
                 "font-styles": false,
                 "emphasis": true, 
@@ -204,11 +238,55 @@ Profile
             $('#skill').val('')
 
             $(".selected_skills ul").append('<li><span class="badge badge-primary">'+skill_name+'</li>');
-            
-            
-
            
         });
+
+        $( "#job_skill" ).autocomplete({
+            delay: 0,
+            source: '/skill/autocomplete_skills',
+            
+            select: function(e,selected) {
+                $('#selected_job_skill_id').val(selected.item.id)
+                //var $item = selected.item;
+                // counter=Math.floor(Math.random() * 1000000000);
+                // searchvalid=selected.item.id;
+                // searchvaltext=selected.item.value;      
+            
+            },
+            search: function() {
+             $('#selected_job_skill_id').val('')
+            },
+        });
+
+
+        $(".add_job_skill").click(function(e) {
+            e.preventDefault();
+
+            var skill_name=$('#job_skill').val();
+
+            skills_object.push({
+                skill_id:$('#selected_job_skill_id').val(),
+                skill_name: skill_name
+            })
+
+            $('#selected_job_skill_id').val('')
+            $('#job_skill').val('')
+
+            $(".selected_job_skills ul").append('<li><span class="badge badge-primary">'+skill_name+'</li>');
+           
+        });
+
+
+
+
+
+         $('.date_selector').datepicker({
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            format: "dd-mm-yyyy",
+            yearRange: "-90:+00"
+        })
 
 
         

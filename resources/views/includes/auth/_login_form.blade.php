@@ -1,10 +1,11 @@
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('login') }}" class="details_form">
     @csrf
 
 
     <div class="form-group">
         {{Form::label('email', 'Email Address',['class'=>'control-label'])}}
-        {{Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Enter your Email', 'autofocus'=>'true'])}}
+        {{Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Enter your Email',
+        'autofocus'=>'true','required'=>'required'])}}
         @error('email')
         <span class="error_submission" role="alert">
             <strong>{{ $message }}</strong>
@@ -14,7 +15,8 @@
 
     <div class="form-group">
         {{Form::label('password', 'Password',['class'=>'control-label'])}}
-        {{Form::password('password',['class'=>'form-control', 'placeholder'=>'Enter your password', 'autofocus'=>'true'])}}
+        {{Form::password('password',['class'=>'form-control', 'placeholder'=>'Enter your password',
+        'autofocus'=>'true', 'required'=>'required'])}}
         @error('password')
         <span class="error_submission" role="alert">
             <strong>{{ $message }}</strong>
@@ -27,13 +29,13 @@
     {{-- <div class="form-group">
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                {{ old('remember') ? 'checked' : '' }}>
+            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked'
+                : '' }}>
 
-    <label class="form-check-label" for="remember">
-        {{ __('Remember Me') }}
-    </label>
-    </div>
+            <label class="form-check-label" for="remember">
+                {{ __('Remember Me') }}
+            </label>
+        </div>
 
     </div> --}}
 

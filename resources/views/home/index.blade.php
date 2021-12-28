@@ -5,116 +5,79 @@ Welcome
 
 @section('content')
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-        <a href="../../index3.html" class="navbar-brand">
-            <img src="/images/logo.png" alt="AdminLTE Logo" class="brand-image">
-
-        </a>
-
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav main_menu">
-                <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Find Experts</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Search Tasks/Jobs</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- Right navbar links -->
-        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
-            <li>
-
-                <a href="" class="btn btn-block btn-warning"><b>REGISTER</b></a>
-            </li>
-
-
-        </ul>
-    </div>
-</nav>
+@include('includes._main_navigation')
 {{-- <div class="content-wrapper"> --}}
-<div class="start_up_cover">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
+    <div class="start_up_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
 
 
-                <div class="header">
-                    <br />
+                    <div class="header">
+                        <br />
 
-                    <h6>Utalanta links your Talent & Skills with Opportunities. Also
-                        find Tasks & Jobs that best match your skills </h6>
-                    <p class="lead">Login to Your Account</p>
+                        <h6>Utalanta links your Talent & Skills with Opportunities. Also
+                            find Tasks & Jobs that best match your skills </h6>
+                        <p class="lead">Login to Your Account</p>
 
 
 
-                    @include('includes.auth._login_form')
+                        @include('includes.auth._login_form')
 
-                    <div class="bottom">
-                        <a class="btn btn-secondary btn-block" href="/register">Register
-                            Account</a>
+                        <div class="bottom">
+                            <a class="btn btn-secondary btn-block" href="/register">Register
+                                Account</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6" style=" padding-left: 50px">
-                <br />
+                <div class="col-lg-6" style=" padding-left: 50px">
+                    <br />
 
-                <div style="padding-top: 20px">
-                    <a href="#introVideoModal" class="video-btn" data-toggle="modal"
-                        data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#introVideoModal">
-                        <img src="/images/intro_video_artwork.jpg" class="img-fluid rounded">
-                    </a>
+                    <div style="padding-top: 20px">
+                        <a href="#introVideoModal" class="video-btn" data-toggle="modal"
+                            data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#introVideoModal">
+                            <img src="/images/intro_video_artwork.jpg" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    {{-- <h3 style="font-size:26px">Where your Talent &amp; Skills Pays Off</h3> --}}
                 </div>
-                {{-- <h3 style="font-size:26px">Where your Talent &amp; Skills Pays Off</h3> --}}
             </div>
+
+
         </div>
+
+        @include('includes._footer')
 
 
     </div>
 
-    @include('includes._footer')
+
+    <div class=" modal fade" id="introVideoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
 
-</div>
+                <div class="modal-body">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
 
 
-<div class=" modal fade" id="introVideoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-
-            <div class="modal-body">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <!-- 16:9 aspect ratio -->
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                        allow="autoplay"></iframe>
                 </div>
 
-
             </div>
-
         </div>
     </div>
-</div>
-{{-- </div> --}}
+    {{--
+</div> --}}
 
 
 <!-- /.navbar -->
@@ -124,6 +87,8 @@ Welcome
 
 @section('css-scripts')
 <link href="dist/css/custom.css" rel="stylesheet">
+<link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
 <style>
     .modal-dialog {
         max-width: 800px;
@@ -154,7 +119,7 @@ Welcome
 
 @section('js-scripts')
 {{-- <script src="{{ asset('js/jquery-ui.min.js')}}"></script> --}}
-
+<script src="https://oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <script>
     $(document).ready(function() {
         var $videoSrc;  
@@ -169,6 +134,18 @@ Welcome
         $('#introVideoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src',$videoSrc); 
         }) 
+
+           $('.details_form')
+            .bootstrapValidator({
+                // Only disabled elements are excluded
+                // The invisible elements belonging to inactive tabs must be validated
+                excluded: [':disabled'],
+                feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+                },
+            })
 
 
     });

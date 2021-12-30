@@ -105,7 +105,7 @@
             @foreach ($latest_jobs as $job)
             <li class="item">
                 <div class="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    <img src="/dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
                 </div>
                 <div class="product-info">
                     <a href="javascript:void(0)" class="product-title">{{$job->job_title}}

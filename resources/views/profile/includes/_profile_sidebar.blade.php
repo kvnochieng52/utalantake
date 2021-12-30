@@ -57,7 +57,7 @@
             <li class="list-group-item">
                 <a href="/job" style="color:#5f5f5f"><b> <i class="far fa-clipboard"></i> Tasks/Jobs</b>
                 </a>
-                <a href="/job/post" class="float-right btn btn-outline-secondary"><i class="fas fa-plus"></i> Post
+                <a href="/job/start" class="float-right btn btn-outline-secondary"><i class="fas fa-plus"></i> Post
                     New</a>
             </li>
             {{-- <li class="list-group-item">

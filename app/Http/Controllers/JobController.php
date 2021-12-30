@@ -31,6 +31,8 @@ class JobController extends Controller
         return view('jobs.index')->with([
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
             'user_posted_jobs' => Job::getJobsByUserID(Auth::user()->id)->paginate(1),
+            'jobs_count' => Job::count(),
+            'latest_jobs' => Job::orderBy('id', 'DESC')->limit(5)->get()
 
 
         ]);
@@ -43,6 +45,8 @@ class JobController extends Controller
             'user_details' => UserDetail::getUserByID(Auth::user()->id),
             'TASK_CODE' => Job::TASK_CODE,
             'JOB_CODE' => Job::JOB_CODE,
+            'jobs_count' => Job::count(),
+            'latest_jobs' => Job::orderBy('id', 'DESC')->limit(5)->get()
         ]);
     }
 
@@ -74,6 +78,8 @@ class JobController extends Controller
             'payment_modes' => Payment_mode::where('active', 1)->pluck('payment_mode_name', 'id'),
             'job_types' => JobType::where('active', 1)->pluck('job_type_name', 'id'),
             'qualifications' => JobEducationLevel::where('active', 1)->pluck('education_level_name', 'id'),
+            'jobs_count' => Job::count(),
+            'latest_jobs' => Job::orderBy('id', 'DESC')->limit(5)->get()
         ]);
     }
 
@@ -189,6 +195,8 @@ class JobController extends Controller
             'payment_modes' => Payment_mode::where('active', 1)->pluck('payment_mode_name', 'id'),
             'job_types' => JobType::where('active', 1)->pluck('job_type_name', 'id'),
             'qualifications' => JobEducationLevel::where('active', 1)->pluck('education_level_name', 'id'),
+            'jobs_count' => Job::count(),
+            'latest_jobs' => Job::orderBy('id', 'DESC')->limit(5)->get()
         ]);
     }
 

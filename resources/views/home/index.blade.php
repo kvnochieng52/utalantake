@@ -36,7 +36,7 @@ Welcome
 
                     <div style="padding-top: 20px">
                         <a href="#introVideoModal" class="video-btn" data-toggle="modal"
-                            data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#introVideoModal">
+                            data-src="https://www.youtube.com/embed/6YYfsu0PDOk" data-target="#introVideoModal">
                             <img src="/images/intro_video_artwork.jpg" class="img-fluid rounded">
                         </a>
                     </div>

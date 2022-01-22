@@ -55,7 +55,6 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
     });
 
     Route::prefix('skill')->group(function () {
-        Route::get('/autocomplete_skills', 'SkillController@autocomplete_skills');
         Route::post('/add_skill', 'SkillController@add_skill');
     });
 
@@ -96,6 +95,7 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/under_construction', 'HomeController@under_construction');
+Route::get('skill/autocomplete_skills', 'SkillController@autocomplete_skills');
 
 Route::prefix('search')->group(function () {
     Route::get('/expert', 'SearchController@expert');

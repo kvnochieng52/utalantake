@@ -95,6 +95,7 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/under_construction', 'HomeController@under_construction');
 
 Route::prefix('search')->group(function () {
     Route::get('/expert', 'SearchController@expert');

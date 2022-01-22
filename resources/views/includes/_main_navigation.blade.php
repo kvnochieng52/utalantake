@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Search Tasks/Jobs</a>
+                    <a href="/under_construction" class="nav-link">Search Tasks/Jobs</a>
                 </li>
 
             </ul>

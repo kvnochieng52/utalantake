@@ -42,4 +42,10 @@ class HomeController extends Controller
     {
         return view('home.contact_us');
     }
+
+
+    public function under_construction()
+    {
+        return view('home.under_construction');
+    }
 }

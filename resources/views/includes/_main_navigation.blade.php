@@ -66,9 +66,9 @@
                     </li> --}}
 
 
-                    <li><a href="#" class="dropdown-item">View profile</a></li>
-                    <li><a href="#" class="dropdown-item">Edit Profile</a></li>
-                    <li><a href="#" class="dropdown-item">Jobs/Tasks</a></li>
+                    <li><a href="/profile" class="dropdown-item">View profile</a></li>
+                    <li><a href="/profile" class="dropdown-item">Edit Profile</a></li>
+                    <li><a href="/job" class="dropdown-item">Jobs/Tasks</a></li>
 
 
                     <li class="dropdown-divider"></li>
@@ -85,7 +85,7 @@
 
                     <!-- Menu Footer-->
                     <li>
-                        <a href="#" class="dropdown-item">Logout </a>
+                        <a href="{{ url('/logout') }}" class="dropdown-item">Logout </a>
                     </li>
                 </ul>
             </li>

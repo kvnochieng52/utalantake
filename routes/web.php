@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
+Route::get('/terms_and_conditions', 'HomeController@terms_and_conditions');
+Route::get('/contact_us', 'HomeController@contact_us');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('expert/{slug}', 'ExpertController@show');
@@ -90,6 +93,8 @@ Route::group(['middleware' => ['auth', 'user_has_selected_ac_type']], function (
         Route::post('/upload_attachments', 'JobController@upload_attachments');
     });
 });
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::prefix('search')->group(function () {
     Route::get('/expert', 'SearchController@expert');

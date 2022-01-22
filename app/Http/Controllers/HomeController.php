@@ -31,4 +31,15 @@ class HomeController extends Controller
             return view('home.index');
         }
     }
+
+
+    public function terms_and_conditions()
+    {
+        return view('home.terms_and_conditions');
+    }
+
+    public function contact_us()
+    {
+        return view('home.contact_us');
+    }
 }

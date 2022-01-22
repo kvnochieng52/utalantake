@@ -5,13 +5,13 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <p>All Rights Reserved | Copyright 2020 © Utalanta.com</p>
+                <p>All Rights Reserved | Copyright {{date("Y")}} © Utalanta.com</p>
             </div>
 
 
             <div class="col-lg-6">
                 <div class="float-right">
-                    <a href="">About</a> &nbsp; <a href="">Privacy Statement</a> &nbsp; <a href="">Contact
+                    <a href="/terms_and_conditions">Terms & Conditions</a> &nbsp; <a href="/contact_us">Contact
                         Us</a>
                     &nbsp;&nbsp;
                     Powered By <a href="http://softtouchtechnologies.com/">Soft Touch Technologies.</a>

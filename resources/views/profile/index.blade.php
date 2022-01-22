@@ -480,9 +480,10 @@ Profile
         <div class="modal-content">
             <div class="modal-header" style="padding:10px">
                 <h5 class="modal-title">View Portfolio</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <a href="/profile">
+                    <h3 aria-hidden="true">&times;</h3>
+
+                </a>
             </div>
             <div class="modal-body">
 

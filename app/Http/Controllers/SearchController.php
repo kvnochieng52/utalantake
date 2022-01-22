@@ -77,11 +77,13 @@ class SearchController extends Controller
         }
 
 
-        $search_query->groupBy('user_selected_skills.user_id', 'user_details.id', 'towns.town_name', 'user_details.id');
+        $search_query->groupBy('user_selected_skills.user_id', 'user_details.id', 'towns.town_name', 'user_details.id', 'user_details.first_name', 'user_details.last_name');
         $data = $search_query->get([
             'user_selected_skills.user_id',
             'user_details.id',
             'towns.town_name',
+            'user_details.first_name',
+            'user_details.last_name'
         ]);
 
 

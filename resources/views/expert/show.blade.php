@@ -110,7 +110,7 @@
                                             <div class="embed-responsive embed-responsive-16by9"
                                                 style="border-radius:20px">
                                                 <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/Ldge7ibXZR4?rel=0"
+                                                    src="https://www.youtube.com/embed/6YYfsu0PDOk?rel=0"
                                                     allowfullscreen></iframe>
                                             </div>
                                         </a>

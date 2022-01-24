@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,6 +47,8 @@ class HomeController extends Controller
 
     public function under_construction()
     {
-        return view('home.under_construction');
+        return view('home.under_construction')->with([
+            'user_details' => (!empty(Auth::user()->id)) ? UserDetail::getUserByID(Auth::user()->id) : [],
+        ]);
     }
 }

@@ -120,13 +120,19 @@ Search Expert
 
                                 <div class="row">
                                     <div class="col-sm-2 col-md-2 col-xs-12 image-container">
-                                        <img src="/{{$expert->profile_photo_thumb}}"
-                                            style="margin-left:-15px; width:100%" />
+                                        <a href="/expert/{{$expert->slug}}">
+                                            <img src="/{{$user_details->profile_photo_thumb !=null ? $user_details->profile_photo_thumb : 'images/no-image.png' }}"
+                                                class="user-image" alt="User Image"
+                                                style="margin-left:-15px; width:100%">
+
+                                        </a>
+
                                     </div>
 
                                     <div class="col-sm-10 col-md-10 col-xs-12">
 
-                                        <h5 style="margin-bottom: 2px"><a href="">{{$expert->first_name}}
+                                        <h5 style="margin-bottom: 2px"><a
+                                                href="/expert/{{$expert->slug}}">{{$expert->first_name}}
                                                 {{$expert->last_name}}</a>
                                         </h5>
                                         <p style="margin-bottom: 2px">{{$expert->title}}/{{$expert->town_name}}</p>

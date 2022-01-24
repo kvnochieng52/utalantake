@@ -8,7 +8,7 @@ candidate_form',
     <div class="col-12">
         <div class="form-group">
             <label>Select Industries that match your skills and pontential on the Left pannel</label>
-            <select class="duallistbox" multiple="multiple" name="industries[]">
+            <select class="select2" multiple="multiple" name="industries[]">
                 @foreach ($industries as $key=>$industry)
                 <option value="{{$key}}" @if(in_array($key, $user_selected_industries_array)) selected @endif>
                     {{$industry}}

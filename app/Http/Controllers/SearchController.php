@@ -62,7 +62,12 @@ class SearchController extends Controller
             ->leftJoin('counties', 'user_details.county_id', 'counties.id')
             ->leftJoin('towns', 'user_details.town_id', 'towns.id')
             ->leftJoin('user_selected_industries', 'user_details.user_id', 'user_selected_industries.user_id')
-            ->where('skills.skill_name', 'ilike', '%' . $request->input('skills') . '%');
+
+            ->where(function ($query) use ($request) {
+                $query->where('skills.skill_name', 'ilike', '%' . $request->input('skills') . '%')
+                    ->where('user_details.title', 'ilike', '%' . $request->input('skills') . '%');
+            });
+
 
 
         if (!empty($request->input('location'))) {

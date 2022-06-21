@@ -120,11 +120,9 @@ Search Expert
 
                                 <div class="row">
 
-                                    {{$user_details->profile_photo_thumb}}
-
                                     <div class="col-sm-2 col-md-2 col-xs-12 image-container">
                                         <a href="/expert/{{$expert->slug}}">
-                                            <img src="/{{$user_details->profile_photo_thumb !=null ? $user_details->profile_photo_thumb : 'images/no-image.png' }}"
+                                            <img src="/{{!empty($expert->profile_photo_thumb !=null) ? $expert->profile_photo_thumb : 'images/no-image.png' }}"
                                                 class="user-image" alt="User Image"
                                                 style="margin-left:-15px; width:100%">
 

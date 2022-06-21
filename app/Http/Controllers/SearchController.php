@@ -84,18 +84,18 @@ class SearchController extends Controller
         }
 
 
-        // $search_query->groupBy(
-        //     'user_selected_skills.user_id',
-        //     'user_details.id',
-        //     'towns.town_name',
-        //     'user_details.id',
-        //     'user_details.first_name',
-        //     'user_details.last_name',
-        //     'user_details.profile_photo_thumb',
-        //     'user_details.title',
-        //     'user_details.bio',
-        //     'user_details.slug'
-        // );
+        $search_query->groupBy(
+            'user_selected_skills.user_id',
+            'user_details.id',
+            'towns.town_name',
+            'user_details.id',
+            'user_details.first_name',
+            'user_details.last_name',
+            'user_details.profile_photo_thumb',
+            'user_details.title',
+            'user_details.bio',
+            'user_details.slug'
+        );
         $data = $search_query->get([
             'user_selected_skills.user_id',
             'user_details.id',

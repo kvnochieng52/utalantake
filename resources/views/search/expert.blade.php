@@ -29,7 +29,7 @@ Search Expert
                                 <div class="form-group">
                                     {{Form::label('skills', 'Skill Or Title',['class'=>'control-label'])}}
                                     {{Form::text('skills',null,['class'=>'form-control',
-                                    'placeholder'=>'Enter the Skill Name*'])}}
+                                    'placeholder'=>'Enter the Skill Or Title*'])}}
                                     @error('skills')
                                     <span class="error_submission" role="alert">
                                         <strong>{{ $message }}</strong>

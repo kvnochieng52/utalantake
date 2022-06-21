@@ -27,9 +27,9 @@ Search Expert
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    {{Form::label('skills', 'Skill Name',['class'=>'control-label'])}}
+                                    {{Form::label('skills', 'Skill or Title',['class'=>'control-label'])}}
                                     {{Form::text('skills',null,['class'=>'form-control',
-                                    'placeholder'=>'Enter the Skill Name*'])}}
+                                    'placeholder'=>'Enter the Skill Name or Title*'])}}
                                     @error('skills')
                                     <span class="error_submission" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -119,6 +119,9 @@ Search Expert
 
 
                                 <div class="row">
+
+                                    {{$user_details->profile_photo_thumb}}
+
                                     <div class="col-sm-2 col-md-2 col-xs-12 image-container">
                                         <a href="/expert/{{$expert->slug}}">
                                             <img src="/{{$user_details->profile_photo_thumb !=null ? $user_details->profile_photo_thumb : 'images/no-image.png' }}"

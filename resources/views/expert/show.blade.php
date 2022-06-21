@@ -106,11 +106,12 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <a href="https://www.youtube.com/watch?v=D0a0aNqTehM">
+                                        <a
+                                            href="https://www.youtube.com/watch?v={{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}">
                                             <div class="embed-responsive embed-responsive-16by9"
                                                 style="border-radius:20px">
                                                 <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/6YYfsu0PDOk?rel=0"
+                                                    src="https://www.youtube.com/embed/{{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}?rel=0"
                                                     allowfullscreen></iframe>
                                             </div>
                                         </a>
@@ -200,6 +201,7 @@
                     <div class="card-body">
                         <div style="width: 100%; padding-bottom:20px">
                             <h5 class="card-title"><i class="fa fa-briefcase"></i> Recent Work & Portfolio </h5>
+                            <br />
 
 
                         </div>
@@ -556,6 +558,44 @@
         </div>
     </div>
 
+
+
+    <div class="modal fade" id="modal-portfolio-view">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header" style="padding:10px">
+                    <h5 class="modal-title">View Portfolio</h5>
+                    <a href="/profile">
+                        <h3 aria-hidden="true">&times;</h3>
+
+                    </a>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <div class="tabbed_slideshow">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="portfolio_details"></div>
+
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> --}}
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
     @include('includes._footer')
     @endsection
 
@@ -770,6 +810,7 @@
 
     @section('js-scripts')
     <script src="/plugins/select2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.17.0/URI.min.js"></script>
     <script>
         $(document).ready(function(){
             
@@ -809,6 +850,162 @@
                  $('#selected_skill_id').val('')
                 },
             });
+
+
+            $('.portfolio_view').click(function(e){
+        e.preventDefault();
+
+        
+
+        $('.tabbed_slideshow').html('<p><i class="fas fa-spinner fa-spin"></i> Loading please wait...</p>')
+        $('.portfolio_details').html('');
+        
+       var portfolio_id= $(this).attr("data-portfolio_id");
+
+       $.ajax({
+                type:'GET',
+                url:'/portfolio/view_portfolio',
+				data:{'portfolio_id':portfolio_id},
+                success:function(data){
+
+
+                // var portfolio_details='<h4>'+data.portfolio_details.portfolio_name+'</h4>'; 
+                // portfolio_details+='<p>'+data.portfolio_details.portfolio_description+'</p>';
+                // portfolio_details+='<hr/>';
+                // portfolio_details+='<p><b>Portfolio Link:</b/><br/>'
+
+                // portfolio_details+='<a target="_blank" href="'+data.portfolio_details.portfolio_url+'"><i class="fas fa-link"></i> Visit Link';
+
+                // portfolio_details+='</a></p>';
+
+
+                var portfolio_details='<table class="table table-striped table-bordered portfolio_details_table">';
+                    portfolio_details+='<body>';
+                    portfolio_details+='<tr><th>Portfolio Title</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_details.portfolio_name+'</td></tr>';
+                    portfolio_details+='<tr><th>Description</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_details.portfolio_description+'</td></tr>';
+                    portfolio_details+='<tr><th>Portfolio Link</th></tr>';
+                    portfolio_details+='<tr><td><a target="_blank" href="'+data.portfolio_details.portfolio_url+'"><i class="fas fa-link"></i> Visit Link</a></td></tr>'; 
+                    portfolio_details+='<tr><th>Total Files</th></tr>';
+                    portfolio_details+='<tr><td>'+data.portfolio_files.length+'</td></tr>';
+                    portfolio_details+='</body>';
+                    portfolio_details+='</table>';
+                
+    
+        
+
+                 $('.portfolio_details').html(portfolio_details);
+
+                   var tab='<div class="card card-tabs">';
+                        tab+='<div class="card-body">';
+                        tab+='<div class="tab-content" id="custom-tabs-three-tabContent">';
+
+                        var p_count=1
+                        $.each(data.portfolio_files, function(key,value) {
+
+                            var active_css ="";
+
+                            if(key==0){
+                                active_css ='active';
+                            }
+
+                            tab+='<div class="tab-pane fade show '+active_css+'" id="custom-tabs-three-'+key+'" role="tabpanel" aria-labelledby="custom-tabs-three-'+key+'-tab">'
+                            
+                              
+                            //   if(value.portfolio_url.indexOf("youtube") != -1){
+                            //       alert('me');
+                            //   }
+                              
+
+                            if(data.portfolio_details.portfolio_url.indexOf("youtube") != -1){
+
+                                var uri = data.portfolio_details.portfolio_url;
+                                var components = URI.parse(uri);
+                                var query = URI.parseQuery(components['query']);
+                               //alert(query['v']);
+
+
+
+                               tab+='<iframe src="https://www.youtube.com/embed/'+query['v']+'" style="width:100% ;height:400px">';
+                               tab+='</iframe>';
+                              //tab+='<p>'+data.portfolio_details.portfolio_url+'</p>';
+                            }else{
+                              
+                              
+                             if(value.portfolio_type.indexOf("image") != -1){
+                                tab+='<img src="/'+value.portfolio_upload+'" style="width:100%">';
+                              }else if (value.portfolio_type.indexOf("video") != -1) {
+                                tab+='<video width="100%" height="400" controls>';
+                                tab+='<source src="/'+value.portfolio_upload+'">';
+                                tab+='Your browser does not support the video tag.';
+                                tab+='</video>';
+                             }else if (value.portfolio_type.indexOf("audio") != -1) {
+                                tab+='<audio controls width="100%">';
+                                tab+='<source src="/'+value.portfolio_upload+'">';
+                                tab+='Your browser does not support the audio element';
+                                tab+='</audio>';
+                            
+                             }else{
+                                tab+='<a target="_blank" href="/'+value.portfolio_upload+'" class="btn btn-app" style="height:auto; width:100%"> <i class="fas fa-file" style="font-size:80px"></i> <span style="font-size:16px">Download File</span></a>'
+                             }
+                            }
+
+                                var file_no=key+1;
+                            
+                                tab+='<p>File: '+file_no+' of '+ data.portfolio_files.length+'</p>';
+
+                            tab+='</div>';
+
+
+                        });
+                           
+                               
+
+                            tab+='</div>';
+                        tab+='</div>';
+
+
+                        tab+='<div class="card-header p-0 pt-1 border-bottom-0">';
+                           tab+='<ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">';
+
+
+                                    $.each(data.portfolio_files, function(key,value) {
+
+                                        var active_css_tab ="";
+                                        
+                                        if(key==0){
+                                             active_css_tab ='active';
+                                        }
+                                        tab+='<li class="nav-item">'
+                                             tab+='<a class="nav-link '+active_css_tab+'" id="custom-tabs-three-'+key+'-tab" data-toggle="pill" href="#custom-tabs-three-'+key+'" role="tab" aria-controls="custom-tabs-three-'+key+'" aria-selected="true"><i class="fas fa-circle" style="font-size: 18px;"></i>';
+                                        tab+='</a></li>';
+                                    });
+                                
+                           tab+='</ul>';
+                        tab+='</div>';
+
+                    tab+='</div>';
+
+                   $('.tabbed_slideshow').html(tab)
+					// var $dropdown = $("#produce_subtype");
+					// $($dropdown)[0].options.length = 0;
+					// $dropdown.append($("<option />").text('--none--'));
+
+					// $.each(data, function(index, element) {
+					// 	$dropdown.append($("<option />").val(element.id).text(element.produce_sub_type_name));
+					// });
+
+                },
+                error:function(e){}
+            });
+
+       $('#modal-portfolio-view').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+      
+    });
             
     
         })

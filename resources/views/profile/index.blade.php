@@ -160,11 +160,12 @@ Profile
                                     </div>
 
                                     <div class="col-md-6">
-                                        <a href="https://www.youtube.com/watch?v=6YYfsu0PDOk">
+                                        <a
+                                            href="https://www.youtube.com/watch?v={{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}">
                                             <div class="embed-responsive embed-responsive-16by9"
                                                 style="border-radius:20px">
                                                 <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/6YYfsu0PDOk?rel=0"
+                                                    src="https://www.youtube.com/embed/{{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}?rel=0"
                                                     allowfullscreen></iframe>
                                             </div>
                                         </a>
@@ -538,7 +539,7 @@ Profile
 <link href="/dist/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 <link href="/plugins/select2/css/select2.min.css" rel="stylesheet">
 <link href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet">
-<link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" rel="stylesheet">
 <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
 
@@ -750,6 +751,7 @@ Profile
 <script src="/plugins/select2/js/select2.full.min.js"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script src="https://oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.17.0/URI.min.js"></script>
 {{-- <script src="/dist/css/jquery-ui.min.js"></script> --}}
 
 
@@ -839,7 +841,28 @@ Profile
 
                             tab+='<div class="tab-pane fade show '+active_css+'" id="custom-tabs-three-'+key+'" role="tabpanel" aria-labelledby="custom-tabs-three-'+key+'-tab">'
                             
-                              if(value.portfolio_type.indexOf("image") != -1){
+                              
+                            //   if(value.portfolio_url.indexOf("youtube") != -1){
+                            //       alert('me');
+                            //   }
+                              
+
+                            if(data.portfolio_details.portfolio_url.indexOf("youtube") != -1){
+
+                                var uri = data.portfolio_details.portfolio_url;
+                                var components = URI.parse(uri);
+                                var query = URI.parseQuery(components['query']);
+                               //alert(query['v']);
+
+
+
+                               tab+='<iframe src="https://www.youtube.com/embed/'+query['v']+'" style="width:100% ;height:400px">';
+                               tab+='</iframe>';
+                              //tab+='<p>'+data.portfolio_details.portfolio_url+'</p>';
+                            }else{
+                              
+                              
+                             if(value.portfolio_type.indexOf("image") != -1){
                                 tab+='<img src="/'+value.portfolio_upload+'" style="width:100%">';
                               }else if (value.portfolio_type.indexOf("video") != -1) {
                                 tab+='<video width="100%" height="400" controls>';
@@ -848,13 +871,14 @@ Profile
                                 tab+='</video>';
                              }else if (value.portfolio_type.indexOf("audio") != -1) {
                                 tab+='<audio controls width="100%">';
-                                tab+='<source src="'+value.portfolio_upload+'">';
+                                tab+='<source src="/'+value.portfolio_upload+'">';
                                 tab+='Your browser does not support the audio element';
                                 tab+='</audio>';
                             
                              }else{
                                 tab+='<a target="_blank" href="/'+value.portfolio_upload+'" class="btn btn-app" style="height:auto; width:100%"> <i class="fas fa-file" style="font-size:80px"></i> <span style="font-size:16px">Download File</span></a>'
                              }
+                            }
 
                                 var file_no=key+1;
                             
@@ -1022,6 +1046,10 @@ Profile
         // };
                 
     });
+
+
+
+
 </script>
 
 

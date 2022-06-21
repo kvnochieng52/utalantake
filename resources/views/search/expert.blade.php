@@ -27,7 +27,7 @@ Search Expert
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    {{Form::label('skills', 'Skill Name',['class'=>'control-label'])}}
+                                    {{Form::label('skills', 'Skill Or Title',['class'=>'control-label'])}}
                                     {{Form::text('skills',null,['class'=>'form-control',
                                     'placeholder'=>'Enter the Skill Name*'])}}
                                     @error('skills')

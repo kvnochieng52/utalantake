@@ -107,11 +107,11 @@
 
                                     <div class="col-md-6">
                                         <a
-                                            href="https://www.youtube.com/watch?v={{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}">
+                                            href="https://www.youtube.com/watch?v={{!empty($user_profile_details->intro_video) ? $user_profile_details->intro_video : '6YYfsu0PDOk'}}">
                                             <div class="embed-responsive embed-responsive-16by9"
                                                 style="border-radius:20px">
                                                 <iframe class="embed-responsive-item"
-                                                    src="https://www.youtube.com/embed/{{!empty($user_details->intro_video) ? $user_details->intro_video : '6YYfsu0PDOk'}}?rel=0"
+                                                    src="https://www.youtube.com/embed/{{!empty($user_profile_details->intro_video) ? $user_profile_details->intro_video : '6YYfsu0PDOk'}}?rel=0"
                                                     allowfullscreen></iframe>
                                             </div>
                                         </a>
